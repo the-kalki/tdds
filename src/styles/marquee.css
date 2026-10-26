@@ -1,0 +1,33 @@
+@keyframes tdds-marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.tdds-marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  user-select: none;
+}
+
+.tdds-marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  animation: tdds-marquee-scroll 30s linear infinite;
+  will-change: transform;
+}
+
+.tdds-marquee-container:hover .tdds-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tdds-marquee-track {
+    animation: none !important;
+    overflow-x: auto !important;
+  }
+}
