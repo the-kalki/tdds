@@ -21,11 +21,11 @@ const BentoCard: React.FC<BentoCardProps> = ({ service, onSelectService }) => {
         }
       }}
       onClick={() => onSelectService(service)}
-      className="group relative rounded-2xl lg:rounded-3xl bg-[#141414]/90 backdrop-blur-xl border border-white/10 p-4.5 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-white/30 hover:bg-[#181818] shadow-lg hover:shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white w-[245px] sm:w-[265px] lg:w-[calc((100%-2rem)/3)] xl:w-[calc((100%-2.5rem)/3)] 2xl:w-[calc((100%-3rem)/4)] h-[365px] sm:h-[375px] lg:h-[385px] xl:h-[395px] flex-shrink-0 snap-start select-none"
+      className="group relative rounded-2xl lg:rounded-3xl bg-[#141414]/90 backdrop-blur-xl border border-white/10 p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-white/30 hover:bg-[#181818] shadow-lg hover:shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white w-[76vw] sm:w-[260px] lg:w-[calc((100%-2rem)/3)] xl:w-[calc((100%-2.5rem)/3)] 2xl:w-[calc((100%-3rem)/4)] max-w-[280px] sm:max-w-none h-[295px] sm:h-[375px] lg:h-[385px] xl:h-[395px] flex-shrink-0 snap-start select-none"
     >
       <div>
         {/* 3D Visual Asset (Centered floating icon) */}
-        <div className="w-full h-24 sm:h-26 relative flex items-center justify-center my-1.5 overflow-hidden">
+        <div className="w-full h-16 sm:h-24 lg:h-26 relative flex items-center justify-center my-1 sm:my-1.5 overflow-hidden">
           <img
             src={service.imageAsset}
             alt={service.title}
@@ -37,16 +37,18 @@ const BentoCard: React.FC<BentoCardProps> = ({ service, onSelectService }) => {
         </div>
 
         {/* Title */}
-        <h3 className="font-display font-bold text-sm sm:text-[15px] text-white mb-2.5 tracking-tight group-hover:text-tdds-coral-start transition-colors">
+        <h3 className="font-display font-bold text-sm sm:text-[15px] text-white mb-2 sm:mb-2.5 tracking-tight group-hover:text-tdds-coral-start transition-colors">
           {service.title}
         </h3>
 
-        {/* Deliverables Checklist (Clean vertical list, matching reference image) */}
-        <ul className="space-y-1">
-          {service.deliverables.slice(0, 6).map((item, idx) => (
+        {/* Deliverables Checklist (Clean vertical list, responsive item count) */}
+        <ul className="space-y-0.5 sm:space-y-1">
+          {service.deliverables.slice(0, 5).map((item, idx) => (
             <li
               key={idx}
-              className="text-[11px] sm:text-xs text-white/60 leading-tight font-normal truncate"
+              className={`text-[11px] sm:text-xs text-white/60 leading-tight font-normal truncate ${
+                idx >= 4 ? 'hidden sm:block' : ''
+              }`}
             >
               {item}
             </li>
@@ -73,7 +75,7 @@ export const BentoServiceGrid = forwardRef<HTMLDivElement, BentoServiceGridProps
     return (
       <div
         ref={ref}
-        className="flex gap-3.5 sm:gap-4 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory no-scrollbar scroll-smooth"
+        className="flex gap-3 sm:gap-4 overflow-x-auto pb-3 sm:pb-4 pt-1 snap-x snap-mandatory no-scrollbar scroll-smooth"
       >
         {servicesData.map((service) => (
           <BentoCard

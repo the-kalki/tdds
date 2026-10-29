@@ -13,7 +13,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
   const currentYear = 2026;
 
   return (
-    <footer id="contact" className="relative bg-[#080808] text-white pt-20 sm:pt-28 pb-12 overflow-hidden border-t border-white/10">
+    <footer id="contact" className="relative bg-[#080808] text-white pt-16 sm:pt-24 lg:pt-28 pb-10 sm:pb-12 overflow-hidden border-t border-white/10">
       {/* 01. Dynamic Multi-Stop Liquid Aurora Canvas Flow (100% Pure CSS Animation - 0 Images) */}
       <div className="footer-liquid-canvas absolute inset-0 pointer-events-none" />
 
@@ -25,16 +25,16 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
 
       {/* 04. Section Content */}
       <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 lg:gap-14 pb-20 sm:pb-28">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-14 pb-12 sm:pb-20 lg:pb-28">
           {/* Left Column: Heading Lockup */}
           <div className="max-w-2xl">
             {/* Section Tag without numbering */}
-            <SectionTag theme="dark" className="mb-6 sm:mb-8 font-mono">
+            <SectionTag theme="dark" className="mb-4 sm:mb-8 font-mono">
               LET'S CREATE
             </SectionTag>
 
             {/* Massive Display H2 */}
-            <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] tracking-tight leading-[1.0] text-white uppercase select-none">
+            <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] tracking-tight leading-[1.0] text-white uppercase select-none">
               Have a good<br />idea?
               <span className="block text-gradient-coral mt-1.5 sm:mt-2.5">
                 Let's make it happen.

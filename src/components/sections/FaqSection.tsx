@@ -5,18 +5,18 @@ import { faqsData } from '../../content/siteContent';
 
 export const FaqSection: React.FC = () => {
   return (
-    <section id="about" className="py-24 lg:py-32 bg-tdds-ivory text-neutral-950 relative border-t border-tdds-border-light">
+    <section id="about" className="pt-16 pb-14 sm:py-20 lg:py-28 bg-tdds-ivory text-neutral-950 relative border-t border-tdds-border-light">
       <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Left Column: Heading */}
           <div className="lg:col-span-5">
-            <SectionTag className="mb-5">
+            <SectionTag className="mb-3 sm:mb-5">
               QUESTIONS & ANSWERS
             </SectionTag>
-            <h2 className="font-display font-black text-4xl sm:text-5xl tracking-tight leading-[1.08] mb-4 text-neutral-950">
+            <h2 className="font-display font-black text-2xl sm:text-4xl lg:text-5xl tracking-tight leading-[1.1] sm:leading-[1.08] mb-3 sm:mb-4 text-neutral-950">
               Clear answers, zero agency jargon.
             </h2>
-            <p className="text-neutral-600 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+            <p className="text-neutral-600 text-xs sm:text-base leading-relaxed mb-4 sm:mb-6 font-normal">
               Everything you need to know about how we partner with brands, turnaround timelines, asset ownership, and project pricing.
             </p>
           </div>

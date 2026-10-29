@@ -16,34 +16,34 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section
       id="home"
-      className="relative min-h-screen min-h-[100dvh] flex items-center pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 bg-tdds-ivory overflow-hidden"
+      className="relative min-h-screen min-h-[100dvh] flex items-center pt-20 pb-10 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 bg-tdds-ivory overflow-hidden"
     >
       <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-12 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 items-center">
           {/* Left Column: Typography Lockup (5 cols on lg/xl) */}
           <div className="lg:col-span-5 flex flex-col items-start z-10">
             {/* Location Tag */}
-            <SectionTag className="mb-6">
+            <SectionTag className="mb-4 sm:mb-6">
               {heroContent.locationBadge}
             </SectionTag>
 
             {/* Main Headline H1 */}
-            <h1 className="font-display font-black text-5xl sm:text-6xl lg:text-6xl xl:text-7xl tracking-tight text-neutral-950 uppercase leading-[0.92] mb-6 select-none">
+            <h1 className="font-display font-black text-4xl sm:text-6xl lg:text-6xl xl:text-7xl tracking-tight text-neutral-950 uppercase leading-[0.92] mb-4 sm:mb-6 select-none">
               <span className="block">IDEAS</span>
               <span className="block">INTO</span>
               <FluidImpactText className="mt-1 sm:mt-1.5" />
             </h1>
 
             {/* Subheadline Copy */}
-            <p className="text-neutral-600 text-sm sm:text-base lg:text-lg font-normal leading-relaxed max-w-md mb-8 sm:mb-10">
+            <p className="text-neutral-600 text-xs sm:text-base lg:text-lg font-normal leading-relaxed max-w-md mb-6 sm:mb-10">
               {heroContent.subheadline}
             </p>
 
             {/* Action Group */}
-            <div className="flex flex-wrap items-center gap-3.5 sm:gap-4">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <button
                 onClick={onOpenLeadDrawer}
-                className="group inline-flex items-center gap-2 bg-neutral-950 text-white hover:bg-black rounded-pill px-6 sm:px-7 py-3.5 sm:py-4 text-sm sm:text-base font-semibold transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg"
+                className="group inline-flex items-center gap-2 bg-neutral-950 text-white hover:bg-black rounded-pill px-5 sm:px-7 py-3 sm:py-4 text-xs sm:text-base font-semibold transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg"
               >
                 <span>{heroContent.primaryCta}</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -51,10 +51,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               <button
                 onClick={onOpenShowreel}
-                className="group inline-flex items-center gap-2.5 border border-neutral-300 hover:border-neutral-950 hover:bg-neutral-900/5 text-neutral-900 rounded-pill px-5 sm:px-6 py-3.5 sm:py-4 text-sm sm:text-base font-medium transition-all duration-200 active:scale-95"
+                className="group inline-flex items-center gap-2.5 border border-neutral-300 hover:border-neutral-950 hover:bg-neutral-900/5 text-neutral-900 rounded-pill px-4.5 sm:px-6 py-3 sm:py-4 text-xs sm:text-base font-medium transition-all duration-200 active:scale-95"
               >
-                <span className="w-6 h-6 rounded-full border border-neutral-400 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
-                  <Play className="w-3 h-3 fill-neutral-900 text-neutral-900 ml-0.5" />
+                <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-neutral-400 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
+                  <Play className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-neutral-900 text-neutral-900 ml-0.5" />
                 </span>
                 <span>Watch Showreel</span>
               </button>
@@ -62,10 +62,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Right Column: 3D Artwork Monogram + Philosophy Tags (7 cols on lg/xl) */}
-          <div className="lg:col-span-7 relative flex items-center justify-start lg:pl-4 xl:pl-8">
-            <div className="relative flex items-center gap-6 sm:gap-10 xl:gap-12 w-full">
+          <div className="lg:col-span-7 relative flex items-center justify-center lg:justify-start lg:pl-4 xl:pl-8 mt-2 lg:mt-0">
+            <div className="relative flex items-center justify-center lg:justify-start gap-4 sm:gap-10 xl:gap-12 w-full">
               {/* 3D Glass Monogram Sculpture */}
-              <div className="relative w-[280px] sm:w-[350px] lg:w-[390px] xl:w-[440px] aspect-square flex-shrink-0 flex items-center justify-center transition-transform duration-700 ease-editorial hover:scale-[1.02]">
+              <div className="relative w-[210px] sm:w-[320px] lg:w-[390px] xl:w-[440px] aspect-square flex-shrink-0 flex items-center justify-center transition-transform duration-700 ease-editorial hover:scale-[1.02]">
                 <img
                   src="/images/hero-3d-monogram.webp"
                   alt="The Design Dude Studio 3D Monogram Sculpture"
@@ -78,13 +78,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
 
               {/* Floating Philosophy Vertical Tags with generous breathing room to the right */}
-              <div className="flex flex-col items-start gap-1.5 text-[10px] sm:text-[11px] font-mono tracking-[0.24em] text-neutral-400 uppercase select-none flex-shrink-0">
+              <div className="flex flex-col items-start gap-1 sm:gap-1.5 text-[9px] sm:text-[11px] font-mono tracking-[0.24em] text-neutral-400 uppercase select-none flex-shrink-0">
                 {heroContent.philosophyTags.map((tag) => (
                   <span key={tag} className="transition-colors duration-200 hover:text-neutral-900">
                     {tag}
                   </span>
                 ))}
-                <div className="w-5 h-[1.5px] bg-neutral-300 mt-2" />
+                <div className="w-4 sm:w-5 h-[1.5px] bg-neutral-300 mt-1.5 sm:mt-2" />
               </div>
             </div>
           </div>
