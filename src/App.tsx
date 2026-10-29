@@ -11,6 +11,7 @@ import { Footer } from './components/layout/Footer';
 import { LeadCaptureDrawer } from './components/interactive/LeadCaptureDrawer';
 import { DeliverablesDrawer } from './components/interactive/DeliverablesDrawer';
 import { VideoLightboxModal } from './components/interactive/VideoLightboxModal';
+import { LegalModal } from './components/interactive/LegalModal';
 import type { ServiceCompartment } from './types/content';
 import { heroContent } from './content/siteContent';
 
@@ -29,6 +30,14 @@ export const App: React.FC = () => {
     title: undefined,
   });
 
+  const [legalModal, setLegalModal] = useState<{
+    isOpen: boolean;
+    initialDoc: 'privacy' | 'terms';
+  }>({
+    isOpen: false,
+    initialDoc: 'privacy',
+  });
+
   const handleOpenLeadDrawer = (service?: string) => {
     setSelectedService(service);
     setIsLeadDrawerOpen(true);
@@ -37,6 +46,20 @@ export const App: React.FC = () => {
   const handleCloseLeadDrawer = () => {
     setIsLeadDrawerOpen(false);
     setSelectedService(undefined);
+  };
+
+  const handleOpenLegal = (doc: 'privacy' | 'terms') => {
+    setLegalModal({
+      isOpen: true,
+      initialDoc: doc,
+    });
+  };
+
+  const handleCloseLegal = () => {
+    setLegalModal((prev) => ({
+      ...prev,
+      isOpen: false,
+    }));
   };
 
   const handleOpenShowreel = () => {
@@ -101,7 +124,10 @@ export const App: React.FC = () => {
       </main>
 
       {/* 09. Blueprint Closing & Studio Footer */}
-      <Footer onOpenLeadDrawer={() => handleOpenLeadDrawer()} />
+      <Footer
+        onOpenLeadDrawer={() => handleOpenLeadDrawer()}
+        onOpenLegal={handleOpenLegal}
+      />
 
       {/* Interactive Overlays & Modals */}
       <LeadCaptureDrawer
@@ -122,6 +148,14 @@ export const App: React.FC = () => {
         onClose={handleCloseVideoModal}
         videoUrl={videoModal.videoUrl}
         title={videoModal.title}
+      />
+
+      <LegalModal
+        key={`${legalModal.isOpen ? 'open' : 'closed'}-${legalModal.initialDoc}`}
+        isOpen={legalModal.isOpen}
+        initialDocument={legalModal.initialDoc}
+        onClose={handleCloseLegal}
+        onOpenLeadDrawer={() => handleOpenLeadDrawer()}
       />
     </div>
   );

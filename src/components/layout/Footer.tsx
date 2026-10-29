@@ -6,9 +6,10 @@ import { siteMeta } from '../../content/siteContent';
 
 export interface FooterProps {
   onOpenLeadDrawer: () => void;
+  onOpenLegal?: (type: 'privacy' | 'terms') => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal }) => {
   const currentYear = 2026;
 
   return (
@@ -109,8 +110,20 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer }) => {
 
           {/* Legal Pages & Studio Stamp */}
           <div className="flex items-center gap-5 text-white/50">
-            <a href="#home" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#home" className="hover:text-white transition-colors">Terms of Engagement</a>
+            <button
+              type="button"
+              onClick={() => onOpenLegal?.('privacy')}
+              className="hover:text-white transition-colors cursor-pointer text-left focus:outline-none focus:underline"
+            >
+              Privacy Policy
+            </button>
+            <button
+              type="button"
+              onClick={() => onOpenLegal?.('terms')}
+              className="hover:text-white transition-colors cursor-pointer text-left focus:outline-none focus:underline"
+            >
+              Terms of Engagement
+            </button>
             <span className="text-white/30">•</span>
             <span className="text-white/70">Crafted in Ahmedabad</span>
           </div>
