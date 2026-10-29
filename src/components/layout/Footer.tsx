@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, MessageCircle, Mail } from 'lucide-react';
 import { LogoMark } from '../common/LogoMark';
+import { SectionTag } from '../common/SectionTag';
 import { siteMeta } from '../../content/siteContent';
 
 export interface FooterProps {
@@ -9,33 +10,27 @@ export interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer }) => {
   const currentYear = 2026;
+
   return (
     <footer id="contact" className="relative bg-[#080808] text-white pt-20 sm:pt-28 pb-12 overflow-hidden border-t border-white/10">
-      {/* 01. Dynamic Multi-Stop Liquid Aurora Canvas Flow */}
+      {/* 01. Dynamic Multi-Stop Liquid Aurora Canvas Flow (100% Pure CSS Animation - 0 Images) */}
       <div className="footer-liquid-canvas absolute inset-0 pointer-events-none" />
 
-      {/* 02. Organic 3D Fluid Neon Wave Artwork (Positioned on the right sweeping curve with seamless left feather) */}
-      <div className="absolute right-0 bottom-0 w-full lg:w-[68%] h-full pointer-events-none opacity-60 mix-blend-screen overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_30%)]">
-        <img
-          src="/images/cta-ribbon-clean.webp"
-          alt="Fluid Neon Wave"
-          className="w-full h-full object-cover object-bottom animate-ribbon-sway select-none"
-          loading="lazy"
-        />
-      </div>
+      {/* 02. Secondary Undulating Liquid Wave Mesh */}
+      <div className="footer-liquid-wave absolute inset-x-0 bottom-0 h-4/5 pointer-events-none" />
 
       {/* 03. Top Obsidian Vignette Overlay ensuring maximum text contrast */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#080808] via-[#080808]/60 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#080808] via-[#080808]/65 to-transparent pointer-events-none" />
 
-      {/* 04. Section Content (Exact TDDS.jpeg 05 LET'S CREATE Blueprint) */}
+      {/* 04. Section Content */}
       <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 lg:gap-14 pb-20 sm:pb-28">
           {/* Left Column: Heading Lockup */}
           <div className="max-w-2xl">
-            {/* Section Tag */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-pill text-[11px] font-mono tracking-widest uppercase border border-white/15 bg-white/[0.05] text-neutral-300 mb-6 sm:mb-8 select-none backdrop-blur-sm">
-              <span>( 05 ) LET'S CREATE</span>
-            </div>
+            {/* Section Tag without numbering */}
+            <SectionTag theme="dark" className="mb-6 sm:mb-8 font-mono">
+              LET'S CREATE
+            </SectionTag>
 
             {/* Massive Display H2 */}
             <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] tracking-tight leading-[1.0] text-white uppercase select-none">
@@ -46,27 +41,28 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer }) => {
             </h2>
           </div>
 
-          {/* Right Column: Stacked Action Group */}
-          <div className="flex flex-col items-start lg:items-end gap-4 sm:gap-5 flex-shrink-0">
+          {/* Right Column: Dual Button Actions */}
+          <div className="flex flex-col sm:flex-row lg:flex-col items-stretch sm:items-center lg:items-end gap-3.5 sm:gap-4 flex-shrink-0">
             {/* Primary Action Button */}
             <button
               onClick={onOpenLeadDrawer}
-              className="group inline-flex items-center justify-center gap-2.5 bg-white text-neutral-950 hover:bg-neutral-100 rounded-pill px-8 sm:px-10 py-4 sm:py-4.5 text-sm sm:text-base font-bold transition-all duration-300 active:scale-95 shadow-xl hover:shadow-2xl hover:brightness-105"
+              className="group inline-flex items-center justify-center gap-2.5 bg-white text-neutral-950 hover:bg-neutral-100 rounded-pill px-8 sm:px-9 py-4 text-sm sm:text-base font-bold transition-all duration-300 active:scale-95 shadow-xl hover:shadow-2xl hover:brightness-105"
               aria-label="Start a Project"
             >
               <span>Start a Project</span>
               <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>
 
-            {/* WhatsApp Link with Pulse Dot */}
+            {/* Secondary Action: WhatsApp Button */}
             <a
               href={`https://wa.me/${siteMeta.whatsappNumber}?text=Hi%20TDDS%20team,%20I'd%20like%20to%20discuss%20a%20project...`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 text-white/80 hover:text-white transition-colors duration-200 text-sm font-medium group px-2 py-1"
+              className="group inline-flex items-center justify-center gap-2.5 border border-white/20 hover:border-white hover:bg-white/10 text-white rounded-pill px-7 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold transition-all duration-300 active:scale-95 backdrop-blur-sm shadow-lg hover:shadow-xl"
+              aria-label="Chat on WhatsApp"
             >
-              <MessageCircle className="w-4 h-4 text-tdds-lime transition-transform duration-200 group-hover:scale-110" />
-              <span className="group-hover:underline">Chat on WhatsApp</span>
+              <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-tdds-lime transition-transform duration-200 group-hover:scale-110" />
+              <span>Chat on WhatsApp</span>
             </a>
           </div>
         </div>

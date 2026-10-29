@@ -159,48 +159,60 @@
     animation: gentleScrollBounce 2.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
   }
 
-  /* Bold Liquid Aurora Canvas Flow (11s hypnotic organic cycle) */
+  /* Bold Pure-CSS Liquid Aurora Canvas Flow (11s hypnotic organic cycle, 0 images) */
   @keyframes footerLiquidFlow {
     0% {
       background-position: 0% 45%;
-      filter: saturate(1.2) hue-rotate(0deg);
+      filter: saturate(1.25) hue-rotate(0deg);
     }
     50% {
       background-position: 100% 65%;
-      filter: saturate(1.38) hue-rotate(14deg);
+      filter: saturate(1.45) hue-rotate(15deg);
     }
     100% {
       background-position: 0% 45%;
-      filter: saturate(1.2) hue-rotate(0deg);
+      filter: saturate(1.25) hue-rotate(0deg);
     }
   }
 
   .footer-liquid-canvas {
-    background: radial-gradient(ellipse 85% 65% at 20% 90%, rgba(255, 122, 0, 0.42) 0%, transparent 60%),
-      radial-gradient(ellipse 75% 55% at 85% 85%, rgba(36, 18, 106, 0.55) 0%, transparent 65%),
-      radial-gradient(circle 380px at 50% 95%, rgba(216, 27, 96, 0.38) 0%, transparent 60%),
-      radial-gradient(ellipse 65% 45% at 65% 75%, rgba(255, 87, 34, 0.35) 0%, transparent 55%),
-      linear-gradient(180deg, #080808 0%, #0d0d0d 40%, #150918 100%);
+    background: radial-gradient(ellipse 90% 70% at 20% 90%, rgba(255, 122, 0, 0.45) 0%, transparent 60%),
+      radial-gradient(ellipse 85% 65% at 85% 85%, rgba(36, 18, 106, 0.6) 0%, transparent 65%),
+      radial-gradient(circle 420px at 50% 95%, rgba(216, 27, 96, 0.45) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 50% at 65% 75%, rgba(255, 87, 34, 0.4) 0%, transparent 55%),
+      linear-gradient(180deg, #080808 0%, #0d0d0d 35%, #18091c 100%);
     background-size: 220% 220%;
     animation: footerLiquidFlow 11s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
-  @keyframes ribbonSway {
-    0%, 100% {
-      transform: translateY(0) scale(1);
+  @keyframes liquidWaveFlow {
+    0% {
+      transform: translate3d(-3%, 2%, 0) rotate(-1.5deg) scale(1.05);
+      opacity: 0.7;
     }
     50% {
-      transform: translateY(-8px) scale(1.025);
+      transform: translate3d(3%, -2%, 0) rotate(1.5deg) scale(1.12);
+      opacity: 0.95;
+    }
+    100% {
+      transform: translate3d(-3%, 2%, 0) rotate(-1.5deg) scale(1.05);
+      opacity: 0.7;
     }
   }
 
-  .animate-ribbon-sway {
-    animation: ribbonSway 11s ease-in-out infinite;
+  .footer-liquid-wave {
+    background: radial-gradient(ellipse 90% 60% at 75% 95%, rgba(255, 87, 34, 0.48) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 55% at 25% 90%, rgba(216, 27, 96, 0.48) 0%, transparent 55%),
+      radial-gradient(circle 380px at 50% 85%, rgba(255, 122, 0, 0.38) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 50% at 90% 75%, rgba(36, 18, 106, 0.55) 0%, transparent 65%);
+    filter: blur(52px);
+    animation: liquidWaveFlow 12s ease-in-out infinite;
+    will-change: transform, opacity;
   }
 
   @media (prefers-reduced-motion: reduce) {
     .footer-liquid-canvas,
-    .animate-ribbon-sway {
+    .footer-liquid-wave {
       animation: none !important;
     }
   }
