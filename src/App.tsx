@@ -101,7 +101,7 @@ export const App: React.FC = () => {
         <FaqSection />
 
         {/* 09. Conversion Banner with Fluid Ribbon (Obsidian Canvas) */}
-        <ConversionCtaSection onOpenLeadDrawer={() => handleOpenLeadDrawer()} />
+        <ConversionCtaSection />
       </main>
 
       {/* 10. Comprehensive Studio Footer */}

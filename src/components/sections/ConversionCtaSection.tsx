@@ -3,11 +3,7 @@ import { MessageCircle } from 'lucide-react';
 import { SectionTag } from '../common/SectionTag';
 import { siteMeta } from '../../content/siteContent';
 
-export interface ConversionCtaSectionProps {
-  onOpenLeadDrawer: () => void;
-}
-
-export const ConversionCtaSection: React.FC<ConversionCtaSectionProps> = () => {
+export const ConversionCtaSection: React.FC = () => {
   return (
     <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-tdds-obsidian text-white relative overflow-hidden">
       {/* Background Fluid Neon Ribbon Wave Artwork */}
