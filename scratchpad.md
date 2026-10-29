@@ -74,3 +74,26 @@
   - **Delta:** `-92.17 kB JS` (`-28.21 kB gzip`)
   - **Dependencies cut:** 2 (`caniuse-lite`, `zod`)
   - **Net code lines cut:** `1,184+ lines`
+
+---
+
+### Phase 6: Footer Blueprint Redesign & Liquid Flow (TDDS.jpeg)
+- [x] **6.1 Unified Single-Section Termination**
+  - Deprecate & delete redundant `ConversionCtaSection.tsx`
+  - Strip unneeded corporate footer link columns (`Explore`, `Pillars`, etc.)
+  - Strip numbering `( 05 )` from `LET'S CREATE` tag
+- [x] **6.2 Pure CSS Organic Liquid Canvas**
+  - Purge static ribbon raster assets (`cta-ribbon.webp`, `cta-ribbon-clean.webp`)
+  - Multi-stop radial gradients with organic 11s cycle (`footerLiquidFlow`, `liquidWaveFlow`)
+  - Tangerine, Flame Coral, Crimson, Magenta, Cosmic Indigo color tones
+- [x] **6.3 Button Alignment & Hierarchy (Option A Confirmed)**
+  - Dual pill button configuration: `Start a Project` & `Chat on WhatsApp`
+  - Option A: Equal-width vertical stack (`w-full sm:w-[230px]`, `py-4`) right-aligned on desktop
+- [x] **6.4 Minimalist Legal & Social Bar**
+  - Clean inline circular social icons (Instagram, LinkedIn, Email)
+  - Legal links (`Privacy Policy`, `Terms of Engagement`, `Crafted in Ahmedabad`)
+  - Purity-safe dynamic year (`2026`)
+- [ ] **6.5 Git Integration & Remote Sync**
+  - Commit changes to `feature/footer-liquid-redesign`
+  - Merge cleanly into `main`
+  - Push to GitHub remote (`origin/main`)

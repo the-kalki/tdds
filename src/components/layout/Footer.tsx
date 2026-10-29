@@ -41,12 +41,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer }) => {
             </h2>
           </div>
 
-          {/* Right Column: Dual Button Actions */}
-          <div className="flex flex-col sm:flex-row lg:flex-col items-stretch sm:items-center lg:items-end gap-3.5 sm:gap-4 flex-shrink-0">
+          {/* Right Column: Equal-Width Precision Vertical Stack (Option A) */}
+          <div className="flex flex-col items-stretch sm:items-end gap-3.5 w-full sm:w-auto flex-shrink-0">
             {/* Primary Action Button */}
             <button
               onClick={onOpenLeadDrawer}
-              className="group inline-flex items-center justify-center gap-2.5 bg-white text-neutral-950 hover:bg-neutral-100 rounded-pill px-8 sm:px-9 py-4 text-sm sm:text-base font-bold transition-all duration-300 active:scale-95 shadow-xl hover:shadow-2xl hover:brightness-105"
+              className="group inline-flex items-center justify-center gap-2.5 bg-white text-neutral-950 hover:bg-neutral-100 rounded-pill w-full sm:w-[230px] py-4 text-sm sm:text-base font-bold transition-all duration-300 active:scale-95 shadow-xl hover:shadow-2xl hover:brightness-105"
               aria-label="Start a Project"
             >
               <span>Start a Project</span>
@@ -58,7 +58,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer }) => {
               href={`https://wa.me/${siteMeta.whatsappNumber}?text=Hi%20TDDS%20team,%20I'd%20like%20to%20discuss%20a%20project...`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2.5 border border-white/20 hover:border-white hover:bg-white/10 text-white rounded-pill px-7 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold transition-all duration-300 active:scale-95 backdrop-blur-sm shadow-lg hover:shadow-xl"
+              className="group inline-flex items-center justify-center gap-2.5 border border-white/20 hover:border-white hover:bg-white/10 text-white rounded-pill w-full sm:w-[230px] py-4 text-sm sm:text-base font-semibold transition-all duration-300 active:scale-95 backdrop-blur-sm shadow-lg hover:shadow-xl"
               aria-label="Chat on WhatsApp"
             >
               <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-tdds-lime transition-transform duration-200 group-hover:scale-110" />
