@@ -1,54 +1,35 @@
-import { z } from 'zod';
-
-export type ServiceCategory =
-  | 'All'
-  | 'Video & Reels'
-  | 'Social Media'
-  | 'Advertising'
-  | 'Branding & Design';
-
 export interface CaseStudy {
   id: string;
-  slug: string;
-  index: string;             // e.g. "01", "02"
-  title: string;             // e.g. "Fashion Campaign"
-  client: string;            // e.g. "SWAG"
-  industry: string;          // e.g. "Fashion & Lifestyle Retail"
-  category: 'Video & Reels' | 'Social Media' | 'Advertising' | 'Branding & Design';
-  coverImage: string;        // WebP asset path
-  videoPreviewUrl?: string;  // Light looping preview
-  videoFullUrl?: string;     // Full video URL or showreel
-  deliverables: string[];    // e.g. ["Brand Film", "18 Short-Form Reels"]
-  verifiedResult?: string;   // e.g. "2.8M views & 4x store footfall"
-  featured: boolean;
+  slug?: string;
+  title: string;
+  client: string;
+  coverImage: string;
+  videoPreviewUrl?: string;
+  videoFullUrl?: string;
 }
 
 export interface ServiceCompartment {
   id: 'content-video' | 'social-media' | 'advertising-growth' | 'branding-design';
-  numberTag: string;         // e.g. "01", "02"
-  title: string;             // e.g. "Content & Video"
+  title: string;
   shortDescription: string;
   deliverables: string[];
   imageAsset: string;
-  actionLabel: string;
 }
 
 export interface ClientBrand {
   name: string;
   tagline?: string;
-  industry: string;
+  industry?: string;
   style?: 'bold' | 'serif' | 'modern' | 'monogram' | 'accent';
   isAccent?: boolean;
 }
 
 export interface Testimonial {
   id: string;
-  clientName: string;
-  clientRole?: string;
   brandName: string;
   quote: string;
-  rating: number;
   monogram: string;
+  rating?: number;
 }
 
 export interface ProcessStep {
@@ -62,26 +43,52 @@ export interface FaqItem {
   answer: string;
 }
 
-export const EnquirySchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  brand: z.string().optional(),
-  emailOrPhone: z.string().min(5, "Valid email or phone number required"),
-  serviceNeeded: z.enum([
-    "Content & Video",
-    "Social Media",
-    "Advertising & Growth",
-    "Branding & Design",
-    "Full-Stack Creative",
-    "Other"
-  ]),
-  estimatedBudget: z.enum([
-    "Under ₹50,000",
-    "₹50,000 - ₹1,50,000",
-    "₹1,50,000 - ₹5,00,000",
-    "₹5,00,000+",
-    "Not sure yet"
-  ]),
-  projectDetails: z.string().max(1000).optional(),
-});
+export interface EnquiryPayload {
+  name: string;
+  brand?: string;
+  emailOrPhone: string;
+  serviceNeeded:
+    | "Content & Video"
+    | "Social Media"
+    | "Advertising & Growth"
+    | "Branding & Design"
+    | "Full-Stack Creative"
+    | "Other";
+  estimatedBudget:
+    | "Under ₹50,000"
+    | "₹50,000 - ₹1,50,000"
+    | "₹1,50,000 - ₹5,00,000"
+    | "₹5,00,000+"
+    | "Not sure yet";
+  projectDetails?: string;
+}
 
-export type EnquiryPayload = z.infer<typeof EnquirySchema>;
+export function validateEnquiry(data: Partial<EnquiryPayload>): {
+  success: boolean;
+  errors: Record<string, string>;
+  data?: EnquiryPayload;
+} {
+  const errors: Record<string, string> = {};
+  if (!data.name || data.name.trim().length < 2) {
+    errors.name = "Name must be at least 2 characters";
+  }
+  if (!data.emailOrPhone || data.emailOrPhone.trim().length < 5) {
+    errors.emailOrPhone = "Valid email or phone number required";
+  }
+  if (!data.serviceNeeded) {
+    errors.serviceNeeded = "Please pick a service";
+  }
+  if (data.projectDetails && data.projectDetails.length > 1000) {
+    errors.projectDetails = "Project details must be under 1000 characters";
+  }
+
+  if (Object.keys(errors).length > 0) {
+    return { success: false, errors };
+  }
+
+  return {
+    success: true,
+    errors: {},
+    data: data as EnquiryPayload,
+  };
+}

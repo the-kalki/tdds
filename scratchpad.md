@@ -7,31 +7,31 @@
 ## 📋 Execution Checklist
 
 ### Phase 1: Critical Quick Wins & Dead Code Purge
-- [ ] **1.1 Remove Dead Runtime Dependencies**
+- [x] **1.1 Remove Dead Runtime Dependencies**
   - Run `npm rm caniuse-lite`
   - Verify `package.json` and `package-lock.json`
-- [ ] **1.2 Delete Dead Boilerplate Files**
+- [x] **1.2 Delete Dead Boilerplate Files**
   - Delete `src/App.css` (184 lines of dead starter CSS)
   - Delete `src/components/common/Button.tsx` (55 lines, 0 repo imports)
   - Delete `src/components/common/Badge.tsx` (32 lines, 0 repo imports)
   - Delete `public/icons.svg` (Unreferenced starter SVG sprite)
   - Delete `src/assets/react.svg` and `src/assets/vite.svg`
-- [ ] **1.3 Remove Dead Prop Drilling**
+- [x] **1.3 Remove Dead Prop Drilling**
   - Remove unused `onOpenLeadDrawer` prop from `ConversionCtaSection.tsx`
   - Remove unused prop pass `<ConversionCtaSection onOpenLeadDrawer={...} />` in `src/App.tsx`
 
 ---
 
 ### Phase 2: High-Impact Architectural Simplifications
-- [ ] **2.1 Replace WebGL Shader with CSS Gradient (`FluidImpactText.tsx`)**
+- [x] **2.1 Replace WebGL Shader with CSS Gradient (`FluidImpactText.tsx`)**
   - Replace 407 lines of GLSL, offscreen canvas, and RAF loops with pure semantic `<span>` using `.text-gradient-coral`
   - Verify visual parity, responsive letterform containment, and zero GPU overhead
-- [ ] **2.2 Align `TestimonialSlider.tsx` with Native CSS Scroll-Snap**
+- [x] **2.2 Align `TestimonialSlider.tsx` with Native CSS Scroll-Snap**
   - Eliminate 3x array duplication (`[...data, ...data, ...data]`)
   - Remove window resize DOM style polling (`getComputedStyle`)
   - Remove double `requestAnimationFrame` boundary jump hacks
   - Implement container `overflow-x-auto snap-x snap-mandatory` with simple `scrollBy` arrow handlers (mirroring `PortfolioMatrix`)
-- [ ] **2.3 Eliminate 60fps Re-render Thrashing (`useTilt.ts` & `useReducedMotion.ts`)**
+- [x] **2.3 Eliminate 60fps Re-render Thrashing (`useTilt.ts` & `useReducedMotion.ts`)**
   - Remove mousemove `setState` loops from `BentoServiceGrid.tsx` and `TestimonialSlider.tsx`
   - Replace with CSS `:hover` transformations or direct CSS custom property updates
   - Delete `src/hooks/useTilt.ts` and `src/hooks/useReducedMotion.ts`

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, ArrowRight, CheckCircle2, MessageCircle, Sparkles } from 'lucide-react';
-import { EnquirySchema, type EnquiryPayload } from '../../types/content';
+import { validateEnquiry, type EnquiryPayload } from '../../types/content';
 import { siteMeta } from '../../content/siteContent';
 
 export interface LeadCaptureDrawerProps {
@@ -100,15 +100,9 @@ export const LeadCaptureDrawer: React.FC<LeadCaptureDrawerProps> = ({
     e.preventDefault();
     setErrors({});
 
-    const result = EnquirySchema.safeParse(formData);
-    if (!result.success) {
-      const fieldErrors: Record<string, string> = {};
-      result.error.issues.forEach((err) => {
-        if (err.path[0]) {
-          fieldErrors[err.path[0].toString()] = err.message;
-        }
-      });
-      setErrors(fieldErrors);
+    const result = validateEnquiry(formData);
+    if (!result.success || !result.data) {
+      setErrors(result.errors);
       return;
     }
 

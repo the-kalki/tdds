@@ -13,25 +13,43 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadDrawer }) => {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-
-      // Section spy
-      const sections = ['home', 'work', 'services', 'about', 'contact'];
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 120 && rect.bottom >= 120) {
-            setActiveSection(section);
-            break;
-          }
-        }
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    const sections = ['home', 'work', 'services', 'about', 'contact'];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0,
+      }
+    );
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   const navLinks = [

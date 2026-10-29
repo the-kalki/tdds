@@ -2,37 +2,25 @@ import type { CaseStudy, ServiceCompartment, Testimonial, ClientBrand, ProcessSt
 
 export const siteMeta = {
   brandName: "THE DESIGN DUDE STUDIO",
-  shortName: "TDDS",
   tagline: "Videos, Posters, CGI Ads & Websites crafted to bring your ideas to life.",
   location: "Ahmedabad, Gujarat, India",
   email: "thedesigndudestudio@gmail.com",
   phoneDisplay: "+91 92270 09709",
   whatsappNumber: "919227009709",
-  whatsappCatalog: "https://wa.me/c/255662726594699",
   instagram: "https://www.instagram.com/the_designdude_studio/",
-  instagramHandle: "@the_designdude_studio",
-  linkedin: "",
 };
 
 export const heroContent = {
   locationBadge: "( CREATIVE STUDIO BASED IN AHMEDABAD )",
-  headline: {
-    line1: "IDEAS",
-    line2: "INTO",
-    accent: "IMPACT.",
-  },
   subheadline: "We create high-retention videos, posters, CGI ads, and digital experiences that make brands impossible to ignore.",
   primaryCta: "Start a Project ↗",
-  secondaryCta: "Watch Showreel ▶",
   philosophyTags: ["IDEAS", "PEOPLE", "BRANDS", "CULTURE"],
-  scrollText: "SCROLL ↓",
-  showreelVideoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", // accessible demonstration showreel
+  showreelVideoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
 };
 
 export const servicesData: ServiceCompartment[] = [
   {
     id: 'content-video',
-    numberTag: "01",
     title: "Content & Video",
     shortDescription: "Cinematic commercial films, high-retention reels, and post-production that command attention.",
     deliverables: [
@@ -44,11 +32,9 @@ export const servicesData: ServiceCompartment[] = [
       "CGI & VFX",
     ],
     imageAsset: "/images/service-camera.webp",
-    actionLabel: "Explore Video ↗",
   },
   {
     id: 'social-media',
-    numberTag: "02",
     title: "Social Media Management",
     shortDescription: "Complete handling of your social platforms, daily curation, and systematic community growth.",
     deliverables: [
@@ -60,11 +46,9 @@ export const servicesData: ServiceCompartment[] = [
       "Community Engagement",
     ],
     imageAsset: "/images/service-phone.webp",
-    actionLabel: "Explore Social ↗",
   },
   {
     id: 'advertising-growth',
-    numberTag: "03",
     title: "Advertising & Digital Marketing",
     shortDescription: "Bring your ideas to life with high-impact ads, lead generation, and performance marketing.",
     deliverables: [
@@ -76,11 +60,9 @@ export const servicesData: ServiceCompartment[] = [
       "Growth Consulting",
     ],
     imageAsset: "/images/service-spheres.webp",
-    actionLabel: "Explore Advertising ↗",
   },
   {
     id: 'branding-design',
-    numberTag: "04",
     title: "Branding & Design",
     shortDescription: "Sculpted visual identities, eye-catching posters, packaging, and digital UI direction.",
     deliverables: [
@@ -92,155 +74,99 @@ export const servicesData: ServiceCompartment[] = [
       "Print & Collateral Design",
     ],
     imageAsset: "/images/service-prism.webp",
-    actionLabel: "Explore Design ↗",
   },
 ];
 
 export const caseStudiesData: CaseStudy[] = [
   {
     id: "case-01",
-    slug: "swag-fashion-campaign",
-    index: "01",
     client: "SWAG",
     title: "Fashion Campaign",
-    industry: "Fashion & Lifestyle Retail",
-    category: "Video & Reels",
     coverImage: "/images/case-swag.webp",
     videoFullUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    deliverables: ["Brand Film", "Fashion Showcase Reels", "Social Media Rollout"],
-    verifiedResult: "Signature high-retention fashion rollout driving viral reach and brand prestige.",
-    featured: true,
   },
   {
     id: "case-02",
-    slug: "sun-furniture-mall",
-    index: "02",
     client: "SUN",
     title: "Furniture Mall",
-    industry: "Luxury Living & Interior Spaces",
-    category: "Branding & Design",
     coverImage: "/images/case-sun.webp",
     videoFullUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    deliverables: ["Walkthrough Films", "Interior Portfolio Curation", "Brand Collaterals"],
-    verifiedResult: "Positioning Sun Furniture Mall as premier luxury architectural destination.",
-    featured: true,
   },
   {
     id: "case-03",
-    slug: "bluekrit-weddings",
-    index: "03",
     client: "BLUEKRIT",
     title: "Weddings",
-    industry: "Luxury Wedding Production",
-    category: "Advertising",
     coverImage: "/images/case-bluekrit.webp",
     videoFullUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    deliverables: ["Cinematic Teasers", "Event Visuals", "Social Films"],
-    verifiedResult: "Royal destination wedding presentation with cinematic emotional resonance.",
-    featured: true,
   },
   {
     id: "case-04",
-    slug: "loyal-greens-product-campaign",
-    index: "04",
     client: "LOYAL GREENS",
     title: "Product Campaign",
-    industry: "Luxury Fragrance & Wellness",
-    category: "Advertising",
     coverImage: "/images/case-loyal.webp",
     videoFullUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    deliverables: ["3D CGI Product Renders", "E-Commerce Creative Suite", "Meta Ads"],
-    verifiedResult: "D2C luxury perfume launch blending 3D CGI glass aesthetics with high conversions.",
-    featured: true,
   },
 ];
 
 export const clientBrandsData: ClientBrand[] = [
   { name: "SWAG", tagline: "FASHION HUB", industry: "Fashion & Lifestyle Retail", style: "bold" },
   { name: "SÚN", tagline: "FURNITURE MALL", industry: "Interior & Living Spaces", style: "modern" },
-  { name: "BLUEKRIT", tagline: "WEDDINGS", industry: "Bespoke Event Production", style: "bold" },
-  { name: "LOYAL GREENS", tagline: "FASHION", industry: "Lifestyle, Fragrance & Wellness", style: "modern" },
-  { name: "ZANZAR", tagline: "JEWELLERS", industry: "Heritage & Fine Jewellery", style: "serif" },
-  { name: "RN", tagline: "MAKEOVER", industry: "Beauty & Studio Styling", style: "monogram" },
-  { name: "JV", tagline: "FITNESS", industry: "Athletic Wellness & Strength", style: "monogram" },
-  { name: "PAKWAN", tagline: "PALANPUR", industry: "Food & Restaurant Hospitality", style: "bold" },
-  { name: "BALAJI", tagline: "INTERIOR", industry: "Architecture & Interior Spaces", style: "modern" },
-  { name: "BJ REALTY", tagline: "INFRASTRUCTURE", industry: "Real Estate & Architecture", style: "bold" },
-  { name: "H.M. SHAH", tagline: "CLASSES", industry: "Education & Coaching", style: "modern" },
+  { name: "ZANZAR", tagline: "JEWELLERS", industry: "Fine Diamond & Gold", style: "serif" },
+  { name: "BLUEKRIT", tagline: "WEDDINGS", industry: "Luxury Wedding Production", style: "monogram" },
+  { name: "PAKWAN", tagline: "FINE DINE", industry: "Culinary & Hospitality", style: "serif" },
+  { name: "LOYAL GREENS", tagline: "WELLNESS & D2C", industry: "Luxury Fragrance & Wellness", style: "bold" },
+  { name: "H.M. SHAH", tagline: "EDUCATION", industry: "Chartered Accountancy", style: "modern" },
+  { name: "BALAJI", tagline: "INTERIOR ARCHITECTURE", industry: "Bespoke Spatial Design", style: "bold" },
   { name: "AND MORE", tagline: "PARTNERS ↗", industry: "Creative Partnerships", style: "accent", isAccent: true },
 ];
 
 export const testimonialsData: Testimonial[] = [
   {
     id: "test-01",
-    clientName: "Management",
-    clientRole: "Managing Director",
     brandName: "Zanzar Jewellers",
     quote: "Professional, creative and super easy to work with. Our social media has grown like never before.",
-    rating: 5,
     monogram: "Z",
   },
   {
     id: "test-02",
-    clientName: "Founding Team",
-    clientRole: "Creative Director",
     brandName: "Swag Fashion Hub",
     quote: "The team understands our vision perfectly. Highly recommended!",
-    rating: 5,
     monogram: "S",
   },
   {
     id: "test-03",
-    clientName: "Operations",
-    clientRole: "General Manager",
     brandName: "Sun Furniture Mall",
     quote: "On-time delivery and great results. They are now our go-to team.",
-    rating: 5,
     monogram: "S",
   },
   {
     id: "test-04",
-    clientName: "Bhupesh Jain",
-    clientRole: "Founder & Lead Developer",
     brandName: "BJ Realty",
     quote: "The Design Dude Studio elevated our architectural presentation. Their CGI visuals and branding brought immense trust to our buyers.",
-    rating: 5,
     monogram: "B",
   },
   {
     id: "test-05",
-    clientName: "Founding Team",
-    clientRole: "Managing Director",
     brandName: "Pakwan Palanpur",
     quote: "From cinematic commercial films to daily social curation, TDDS is our trusted creative and growth partner.",
-    rating: 5,
     monogram: "P",
   },
   {
     id: "test-06",
-    clientName: "H. M. Shah",
-    clientRole: "Founder & Director",
     brandName: "H.M. Shah Classes",
     quote: "The team understands student attention and educational branding. Our digital presence and enrolments saw substantial growth.",
-    rating: 5,
     monogram: "H",
   },
   {
     id: "test-07",
-    clientName: "Balaji Team",
-    clientRole: "Principal Architect",
     brandName: "Balaji Interior",
     quote: "Exceptional aesthetics and spatial walkthroughs. They captured the true essence of luxury interior design.",
-    rating: 5,
     monogram: "B",
   },
   {
     id: "test-08",
-    clientName: "Brand Lead",
-    clientRole: "Marketing Head",
     brandName: "Loyal Greens",
     quote: "High-retention product 3D visuals and ad creatives that boosted our D2C brand presence remarkably.",
-    rating: 5,
     monogram: "L",
   },
 ];
@@ -248,57 +174,45 @@ export const testimonialsData: Testimonial[] = [
 export const processStepsData: ProcessStep[] = [
   {
     step: "01",
-    headline: "01 / Discover the brief.",
-    description: "We unpack your brand DNA, analyze your competitor blindspots, and establish clear commercial targets.",
+    headline: "Discovery & Direction",
+    description: "Deep dive into your brand positioning, core audience, competitors, and growth objectives.",
   },
   {
     step: "02",
-    headline: "02 / Build the direction.",
-    description: "We script hooks, map aesthetic moodboards, design production schedules, and lock deliverables.",
+    headline: "Creative Architecture",
+    description: "Moodboards, visual design tokens, scripts, video shot lists, and campaign hooks tailored for high retention.",
   },
   {
     step: "03",
-    headline: "03 / Create with intent.",
-    description: "Our directors, shooters, and designers execute shoots, edits, graphics, and ad suites with obsession.",
+    headline: "Production & Polish",
+    description: "Cinematic filming, 3D CGI rendering, motion graphics, audio mastering, and typography layout execution.",
   },
   {
     step: "04",
-    headline: "04 / Learn and scale.",
-    description: "We track performance metrics, test creative variants, and iterate to maximize inbound returns.",
+    headline: "Launch & Iterate",
+    description: "Deployment across digital platforms, analytics monitoring, performance feedback, and continuous creative refinement.",
   },
 ];
 
 export const faqsData: FaqItem[] = [
   {
-    question: "What services does The Design Dude Studio handle in-house?",
-    answer: "We are a full-funnel creative studio. Our core in-house capabilities cover Video & Content Production (shoots, reels, CGI/VFX, editing), Social Media Management (calendars, growth, community), Performance Advertising (Meta & Google ad funnels), and Brand Design (logos, packaging, web design).",
+    question: "What services does The Design Dude Studio provide?",
+    answer: "We offer end-to-end creative solutions across four primary pillars: Content & Video Production (cinematic brand films, reels, event coverage, CGI), Social Media Management (complete page management, content strategies, viral short-form editing), Advertising & Digital Marketing (Meta & Google ads, funnel building, performance campaigns), and Branding & Design (brand identity, logo design, packaging, and digital UI/UX).",
   },
   {
-    question: "Where are you located, and do you take projects outside Ahmedabad?",
-    answer: "Our studio is based in Ahmedabad, Gujarat. While our production team regularly executes on-ground shoots across Gujarat, Mumbai, and Delhi, our digital marketing, branding, and video post-production clients span across India and internationally.",
+    question: "How long does a typical project take?",
+    answer: "Turnaround depends on project scope. Brand identity and graphic packages typically take 1 to 2 weeks. Video production and CGI campaigns range from 7 to 20 days. Ongoing social media management and advertising retainers operate on dedicated monthly sprint cycles.",
   },
   {
-    question: "How does the project onboarding process work?",
-    answer: "We begin with a 20-minute discovery call or WhatsApp chat to define your objectives. Within 48 hours, we share a tailored creative roadmap, production schedule, and deliverable scope. Once approved, production begins immediately.",
+    question: "Do you work with brands outside Ahmedabad?",
+    answer: "Yes. While our physical studio is based in Ahmedabad, Gujarat, we routinely partner with national brands across Mumbai, Delhi, and Bangalore, as well as international remote clients across the US, UK, and UAE.",
   },
   {
-    question: "What is your typical turnaround time for video campaigns and reels?",
-    answer: "Short-form content batches (12–16 reels) are typically delivered within 7–10 working days post-shoot. Comprehensive brand films and CGI commercial campaigns take between 2 to 4 weeks depending on VFX and grading complexity.",
+    question: "Who owns the final creative assets and raw footage?",
+    answer: "Upon full project completion and final payment, your brand owns 100% of the commercial rights to all delivered assets, polished masters, graphics, and finished campaign videos.",
   },
   {
-    question: "Do you offer monthly retainer packages?",
-    answer: "Yes. Most of our partner brands work on monthly retainers combining ongoing content creation, reel production, daily social management, and paid ad campaign scaling for consistent growth.",
-  },
-  {
-    question: "Who owns the raw footage and creative assets after project delivery?",
-    answer: "You do. Upon project completion and final invoice clearance, 100% of the final assets, brand guidelines, and master video renders belong entirely to your brand.",
-  },
-  {
-    question: "Can you help our brand with Meta and Google advertising from scratch?",
-    answer: "Absolutely. We don't just shoot videos — we build high-converting ad creative specifically engineered for Meta (Instagram/Facebook) and Google Ads, managing audience targeting, ad spend optimization, and conversion tracking.",
-  },
-  {
-    question: "What budget range do I need to work with The Design Dude Studio?",
-    answer: "We tailor our engagements to ambitious brands at different growth stages, with targeted creative projects starting from ₹50,000 and comprehensive multi-month retainers for scaling enterprises. Share your goals via our enquiry form for an exact scope breakdown.",
+    question: "How do we get started?",
+    answer: "Click the 'Start a Project' button anywhere on this page to share your project details, budget range, and timeline, or reach out to us directly on WhatsApp at +91 92270 09709. We will review your brief and schedule an initial discovery call within 24 hours.",
   },
 ];
