@@ -93,7 +93,7 @@
   - Clean inline circular social icons (Instagram, LinkedIn, Email)
   - Legal links (`Privacy Policy`, `Terms of Engagement`, `Crafted in Ahmedabad`)
   - Purity-safe dynamic year (`2026`)
-- [ ] **6.5 Git Integration & Remote Sync**
+- [x] **6.5 Git Integration & Remote Sync**
   - Commit changes to `feature/footer-liquid-redesign`
   - Merge cleanly into `main`
   - Push to GitHub remote (`origin/main`)
