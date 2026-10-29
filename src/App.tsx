@@ -7,7 +7,6 @@ import { ClientProofMarquee } from './components/interactive/ClientProofMarquee'
 import { TestimonialsSection } from './components/sections/TestimonialsSection';
 import { ProcessStrip } from './components/sections/ProcessStrip';
 import { FaqSection } from './components/sections/FaqSection';
-import { ConversionCtaSection } from './components/sections/ConversionCtaSection';
 import { Footer } from './components/layout/Footer';
 import { LeadCaptureDrawer } from './components/interactive/LeadCaptureDrawer';
 import { DeliverablesDrawer } from './components/interactive/DeliverablesDrawer';
@@ -99,12 +98,9 @@ export const App: React.FC = () => {
 
         {/* 08. High-Intent Questions & Answers */}
         <FaqSection />
-
-        {/* 09. Conversion Banner with Fluid Ribbon (Obsidian Canvas) */}
-        <ConversionCtaSection />
       </main>
 
-      {/* 10. Comprehensive Studio Footer */}
+      {/* 09. Blueprint Closing & Studio Footer */}
       <Footer onOpenLeadDrawer={() => handleOpenLeadDrawer()} />
 
       {/* Interactive Overlays & Modals */}

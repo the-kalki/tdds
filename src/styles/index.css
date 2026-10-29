@@ -158,4 +158,50 @@
   .animate-scroll-bounce {
     animation: gentleScrollBounce 2.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
   }
+
+  /* Bold Liquid Aurora Canvas Flow (11s hypnotic organic cycle) */
+  @keyframes footerLiquidFlow {
+    0% {
+      background-position: 0% 45%;
+      filter: saturate(1.2) hue-rotate(0deg);
+    }
+    50% {
+      background-position: 100% 65%;
+      filter: saturate(1.38) hue-rotate(14deg);
+    }
+    100% {
+      background-position: 0% 45%;
+      filter: saturate(1.2) hue-rotate(0deg);
+    }
+  }
+
+  .footer-liquid-canvas {
+    background: radial-gradient(ellipse 85% 65% at 20% 90%, rgba(255, 122, 0, 0.42) 0%, transparent 60%),
+      radial-gradient(ellipse 75% 55% at 85% 85%, rgba(36, 18, 106, 0.55) 0%, transparent 65%),
+      radial-gradient(circle 380px at 50% 95%, rgba(216, 27, 96, 0.38) 0%, transparent 60%),
+      radial-gradient(ellipse 65% 45% at 65% 75%, rgba(255, 87, 34, 0.35) 0%, transparent 55%),
+      linear-gradient(180deg, #080808 0%, #0d0d0d 40%, #150918 100%);
+    background-size: 220% 220%;
+    animation: footerLiquidFlow 11s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes ribbonSway {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-8px) scale(1.025);
+    }
+  }
+
+  .animate-ribbon-sway {
+    animation: ribbonSway 11s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .footer-liquid-canvas,
+    .animate-ribbon-sway {
+      animation: none !important;
+    }
+  }
 }
