@@ -26,7 +26,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadDrawer }) => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    const sections = ['home', 'work', 'services', 'about', 'contact'];
+    const sections = ['home', 'services', 'work', 'about', 'contact'];
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -54,8 +54,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadDrawer }) => {
 
   const navLinks = [
     { label: 'Home', href: '#home', id: 'home' },
-    { label: 'Work', href: '#work', id: 'work' },
     { label: 'Services', href: '#services', id: 'services' },
+    { label: 'Work', href: '#work', id: 'work' },
     { label: 'About', href: '#about', id: 'about' },
     { label: 'Contact', href: '#contact', id: 'contact' },
   ];

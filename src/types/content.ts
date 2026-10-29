@@ -30,6 +30,7 @@ export interface Testimonial {
   quote: string;
   monogram: string;
   rating?: number;
+  industry?: string;
 }
 
 export interface ProcessStep {

@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { ArrowUpRight, ArrowLeft, ArrowRight } from 'lucide-react';
+import React from 'react';
+import { ArrowUpRight } from 'lucide-react';
 import { SectionTag } from '../common/SectionTag';
 import { PortfolioMatrix } from '../interactive/PortfolioMatrix';
 
@@ -12,14 +12,6 @@ export const FeaturedWorkSection: React.FC<FeaturedWorkSectionProps> = ({
   onOpenCaseVideo,
   onOpenLeadDrawer,
 }) => {
-  const matrixRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (direction: 'left' | 'right') => {
-    if (!matrixRef.current) return;
-    const scrollAmount = 300 * (direction === 'left' ? -1 : 1);
-    matrixRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  };
-
   return (
     <section id="work" className="py-14 sm:py-16 lg:py-20 bg-tdds-ivory text-neutral-950 relative overflow-hidden">
       <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-12">
@@ -35,39 +27,18 @@ export const FeaturedWorkSection: React.FC<FeaturedWorkSectionProps> = ({
             <p className="text-neutral-600 text-sm sm:text-base leading-relaxed font-normal mb-8 max-w-sm">
               A glimpse of the stories we've helped brands tell.
             </p>
-            <div className="flex items-center gap-3">
-              <button
-                onClick={onOpenLeadDrawer}
-                className="group inline-flex items-center gap-2.5 border border-neutral-300 hover:border-neutral-950 hover:bg-neutral-900/5 text-neutral-900 rounded-pill px-6 py-3 text-sm font-medium transition-all duration-200 active:scale-95"
-              >
-                <span>View All Work</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </button>
-
-              {/* Scroll Navigation Arrows */}
-              <div className="flex items-center gap-1.5 ml-1">
-                <button
-                  onClick={() => scroll('left')}
-                  className="w-10 h-10 rounded-full border border-neutral-300 hover:border-neutral-900 text-neutral-700 hover:text-neutral-950 flex items-center justify-center transition-all duration-200 active:scale-95 hover:bg-neutral-900/5"
-                  aria-label="Previous work"
-                >
-                  <ArrowLeft className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={() => scroll('right')}
-                  className="w-10 h-10 rounded-full border border-neutral-300 hover:border-neutral-900 text-neutral-700 hover:text-neutral-950 flex items-center justify-center transition-all duration-200 active:scale-95 hover:bg-neutral-900/5"
-                  aria-label="Next work"
-                >
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
+            <button
+              onClick={onOpenLeadDrawer}
+              className="group inline-flex items-center gap-2.5 bg-neutral-950 text-white hover:bg-black rounded-pill px-6 sm:px-7 py-3.5 text-sm font-semibold transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg"
+            >
+              <span>View All Work</span>
+              <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </button>
           </div>
 
           {/* Right Column: 3 Visible Cards + Smooth Horizontal Scroll Track */}
           <div className="w-full flex-1 min-w-0">
             <PortfolioMatrix
-              ref={matrixRef}
               onOpenCaseVideo={onOpenCaseVideo}
             />
           </div>
