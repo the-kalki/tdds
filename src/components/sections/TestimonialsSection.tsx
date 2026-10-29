@@ -18,8 +18,8 @@ export const TestimonialsSection: React.FC = () => {
             </h2>
           </div>
 
-          {/* Right Column: Squeezed Interactive Testimonials Slider (Accommodates 3 Cards) */}
-          <div className="w-full flex-1 min-w-0 overflow-hidden">
+          {/* Right Column: Interactive Testimonials Slider */}
+          <div className="w-full flex-1 min-w-0">
             <TestimonialSlider />
           </div>
         </div>

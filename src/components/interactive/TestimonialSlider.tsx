@@ -73,7 +73,7 @@ const TestimonialCardItem: React.FC<TestimonialCardItemProps> = ({
         zIndex,
       }}
       className={`w-[80vw] sm:w-[270px] lg:w-[290px] xl:w-[315px] flex-shrink-0 cursor-pointer select-none focus:outline-none transition-all duration-500 ease-editorial ${
-        distance > 0 ? 'hover:opacity-100 hover:scale-[0.93]' : ''
+        distance > 0 ? 'hover:opacity-100' : ''
       }`}
     >
       {/* 3D Tilt Wrapper with Fluid Aurora Shader Border */}
@@ -88,7 +88,7 @@ const TestimonialCardItem: React.FC<TestimonialCardItemProps> = ({
       >
         {/* Inner Solid Card Body */}
         <div
-          className={`relative z-10 rounded-2xl p-5 sm:p-6 flex flex-col justify-between min-h-[260px] sm:min-h-[275px] transition-colors duration-300 ${
+          className={`relative z-10 rounded-2xl overflow-hidden p-5 sm:p-6 flex flex-col justify-between min-h-[260px] sm:min-h-[275px] transition-colors duration-300 ${
             isFeatured
               ? 'bg-white border border-neutral-200/90'
               : 'bg-white/85 hover:bg-white border border-neutral-200/60'
@@ -213,7 +213,7 @@ export const TestimonialSlider: React.FC = () => {
       </div>
 
       {/* Testimonials Carousel Track with Soft Right-Edge Ivory Fade */}
-      <div className="relative overflow-hidden w-full py-6 -my-6 pl-1">
+      <div className="relative overflow-x-clip overflow-y-visible w-full py-8 -my-6 pl-1">
         {/* Soft Right Ivory Gradient Overlay */}
         <div
           className="absolute right-0 top-0 bottom-0 w-12 sm:w-16 lg:w-20 bg-gradient-to-l from-tdds-ivory via-tdds-ivory/60 to-transparent pointer-events-none z-20"

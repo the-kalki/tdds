@@ -57,7 +57,7 @@ export const DeliverablesDrawer: React.FC<DeliverablesDrawerProps> = ({
           {/* Header */}
           <div className="flex items-center justify-between pb-6 border-b border-white/10 mb-6">
             <span className="font-mono text-xs text-tdds-lime tracking-wider uppercase">
-              ( {service.numberTag} ) SCOPE DETAILS
+              SCOPE DETAILS
             </span>
             <button
               ref={closeBtnRef}

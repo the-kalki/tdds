@@ -1,3 +1,4 @@
+import { LogoMark } from '../common/LogoMark';
 import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { siteMeta } from '../../content/siteContent';
@@ -56,15 +57,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadDrawer }) => {
             href="#home"
             className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 rounded-lg p-1"
           >
-            <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-transparent transition-transform duration-300 group-hover:scale-105">
-              <img
-                src="/images/tdds-monogram-crop.webp"
-                alt="The Design Dude Studio Monogram"
-                className="w-full h-full object-contain"
-                width={32}
-                height={32}
-              />
-            </div>
+            <LogoMark className="w-8 h-8 text-neutral-950 transition-transform duration-300 group-hover:scale-105" />
             <div className="flex flex-col text-left">
               <span className="font-display font-black text-xs sm:text-sm tracking-tight leading-tight text-neutral-950">
                 THE DESIGN DUDE

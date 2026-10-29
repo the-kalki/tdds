@@ -3,7 +3,10 @@ import { useReducedMotion } from './useReducedMotion';
 
 export function useTilt(maxTilt = 6) {
   const ref = useRef<HTMLDivElement>(null);
-  const [style, setStyle] = useState<CSSProperties>({});
+  const [style, setStyle] = useState<CSSProperties>({
+    transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)',
+    transition: 'transform 300ms cubic-bezier(0.16, 1, 0.3, 1)',
+  });
   const prefersReduced = useReducedMotion();
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {

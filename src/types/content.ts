@@ -35,7 +35,9 @@ export interface ServiceCompartment {
 
 export interface ClientBrand {
   name: string;
+  tagline?: string;
   industry: string;
+  style?: 'bold' | 'serif' | 'modern' | 'monogram' | 'accent';
   isAccent?: boolean;
 }
 

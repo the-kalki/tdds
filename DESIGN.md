@@ -98,7 +98,8 @@ The Design Dude Studio is an Ahmedabad-based multidisciplinary creative agency. 
 - **Warm Ivory (`#FAF9F6`):** Primary editorial background for storytelling, hero, case studies, and testimonials.
 - **Deep Obsidian (`#0D0D0D`):** Technical canvas for the Bento Services Grid, Client Roster Marquee, and Conversion Banner.
 - **Near-Black Ink (`#171717`):** High-contrast typographic headlines and pill buttons.
-- **Impact Coral Gradient (`#FF5722` → `#E02B20`):** Vibrant focal accent used exclusively on high-impact keywords ("IMPACT.", "happen.", "clients.").
+- **Liquid Aurora Flow Mesh (`#FF7A00` → `#FF5722` → `#E02B20` → `#D81B60` → `#311B92`):** Organic, flowing multi-stop liquid shader used exclusively for the hero focal point ("IMPACT.") and dynamic accent highlights.
+- **Impact Coral Gradient (`#FF5722` → `#E02B20`):** Vibrant secondary focal accent.
 - **Energetic Lime (`#C8F169`):** Accent for category pills, live status indicators, and micro-badges.
 
 ## Typography
@@ -125,9 +126,18 @@ The Design Dude Studio is an Ahmedabad-based multidisciplinary creative agency. 
 - **BentoServiceCard:** Dark card with 3D perspective tilt, deliverable items checklist, and floating circular arrow button.
 - **PortfolioTile:** Aspect-locked `aspect-[4/5]` editorial image container with zero layout shift and overlay typography.
 - **LeadCaptureDrawer:** 3-step slide-over form with Zod schema validation and WhatsApp inbound routing.
+- **FluidImpactText:** Interactive Canvas/WebGL fluid shader component for high-impact typography with strict FPS cap.
 
-## Do's and Don'ts
+## Performance & Shader Invariants
+- **Strict FPS Cap:** Interactive shaders are capped to max 30–40 FPS using RAF delta timing (`elapsed >= 1000 / targetFps`).
+- **Viewport Visibility:** Render loops must automatically pause via `IntersectionObserver` when scrolled out of view.
+- **Tab Inactivity Pause:** Render loops must halt when `document.hidden` is true to protect device battery life.
+- **Reduced Motion:** If `prefers-reduced-motion` is enabled, disable animation and render a graceful static multi-radial mesh fallback.
+
+## Asset & Visual Rules
 - **DO** keep video previews muted by default. Sound only plays inside the explicit modal player.
 - **DO** maintain strict aspect ratio locks on all image containers to guarantee 0.00 CLS.
-- **DON'T** use purple or generic blue tints for gradients.
+- **DO** keep raster images strictly isolated to visual subjects (no text, numbers, or UI buttons baked into bitmap assets).
+- **DON'T** duplicate numbers or titles over images that already contain legacy baked-in assets.
+- **DON'T** use purple or generic blue tints for gradients without organic aurora blending.
 - **DON'T** use standard SaaS templates or center-aligned generic split layouts.

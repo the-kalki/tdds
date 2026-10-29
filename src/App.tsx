@@ -76,22 +76,22 @@ export const App: React.FC = () => {
           onOpenShowreel={handleOpenShowreel}
         />
 
-        {/* 03. ( 01 ) Services Bento Grid (Obsidian Canvas) */}
+        {/* 03. Services Bento Grid (Obsidian Canvas) */}
         <ServicesBentoSection
           onSelectService={(service) => setActiveDrawerService(service)}
           onOpenLeadDrawer={() => handleOpenLeadDrawer()}
         />
 
-        {/* 04. ( 02 ) Featured Work Portfolio (Ivory Canvas) */}
+        {/* 04. Featured Work Portfolio (Ivory Canvas) */}
         <FeaturedWorkSection
           onOpenCaseVideo={handleOpenCaseVideo}
           onOpenLeadDrawer={() => handleOpenLeadDrawer()}
         />
 
-        {/* 05. ( 03 ) Client Roster Infinite Marquee (Obsidian Canvas) */}
+        {/* 05. Client Roster Infinite Marquee (Obsidian Canvas) */}
         <ClientProofMarquee />
 
-        {/* 06. ( 04 ) Testimonials Carousel (Ivory Canvas) */}
+        {/* 06. Testimonials Carousel (Ivory Canvas) */}
         <TestimonialsSection />
 
         {/* 07. The Way We Work (Process Strip) */}
@@ -100,7 +100,7 @@ export const App: React.FC = () => {
         {/* 08. High-Intent Questions & Answers */}
         <FaqSection />
 
-        {/* 09. ( 05 ) Conversion Banner with Fluid Ribbon (Obsidian Canvas) */}
+        {/* 09. Conversion Banner with Fluid Ribbon (Obsidian Canvas) */}
         <ConversionCtaSection onOpenLeadDrawer={() => handleOpenLeadDrawer()} />
       </main>
 

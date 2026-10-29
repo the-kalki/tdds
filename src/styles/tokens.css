@@ -20,11 +20,20 @@
   --tdds-border-dark: rgba(255, 255, 255, 0.1);
   --tdds-border-glass-hover: rgba(255, 255, 255, 0.25);
 
-  /* Brand Accents */
+  /* Brand Accents & Liquid Aurora */
   --tdds-accent-lime: #C8F169;
   --tdds-coral-start: #FF5722;
   --tdds-coral-end: #E02B20;
+  --tdds-aurora-tangerine: #FF7A00;
+  --tdds-aurora-coral: #FF5722;
+  --tdds-aurora-crimson: #E02B20;
+  --tdds-aurora-magenta: #D81B60;
+  --tdds-aurora-indigo: #311B92;
   --gradient-impact: linear-gradient(135deg, #FF5722 0%, #E02B20 100%);
+  --gradient-aurora-flow: radial-gradient(ellipse at top left, #FF7A00 0%, transparent 60%),
+    radial-gradient(ellipse at bottom right, #311B92 0%, transparent 60%),
+    radial-gradient(circle at center, #D81B60 10%, transparent 55%),
+    linear-gradient(135deg, #FF5722 0%, #E02B20 28%, #D81B60 62%, #311B92 100%);
   --gradient-ribbon: linear-gradient(90deg, #FF5722 0%, #E02B20 40%, #D81B60 70%, #8E24AA 100%);
 
   /* Spatial Scale (8px rhythm) */

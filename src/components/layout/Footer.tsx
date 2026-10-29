@@ -1,3 +1,4 @@
+import { LogoMark } from '../common/LogoMark';
 import React from 'react';
 import { ArrowUpRight, MessageCircle, Mail } from 'lucide-react';
 import { siteMeta } from '../../content/siteContent';
@@ -18,13 +19,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer }) => {
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <img
-                  src="/images/tdds-monogram-crop.webp"
-                  alt="TDDS Monogram"
-                  className="w-8 h-8 object-contain"
-                  width={32}
-                  height={32}
-                />
+                <LogoMark className="w-8 h-8 text-white" />
                 <span className="font-display font-black text-lg tracking-tight">
                   THE DESIGN DUDE STUDIO
                 </span>
@@ -51,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer }) => {
                 </svg>
               </a>
               <a
-                href={siteMeta.linkedin}
+                href="https://www.linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-white/5 hover:bg-white/10 hover:text-white transition-colors"
@@ -122,7 +117,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer }) => {
             <ul className="space-y-3 text-sm text-white/75">
               <li>
                 <a href="#services" className="hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Content & Video Production</span>
+                  <span>Video Editing & Production</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               </li>
@@ -134,13 +129,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer }) => {
               </li>
               <li>
                 <a href="#services" className="hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Meta & Google Advertising</span>
+                  <span>CGI / VFX Advertisements</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Brand Identity & Design</span>
+                  <span>Logo & Graphic Designing</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               </li>
