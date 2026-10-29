@@ -2,7 +2,6 @@ import React, { forwardRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import type { ServiceCompartment } from '../../types/content';
 import { servicesData } from '../../content/siteContent';
-import { useTilt } from '../../hooks/useTilt';
 
 interface BentoCardProps {
   service: ServiceCompartment;
@@ -10,12 +9,8 @@ interface BentoCardProps {
 }
 
 const BentoCard: React.FC<BentoCardProps> = ({ service, onSelectService }) => {
-  const { ref, style, handleMouseMove, handleMouseLeave } = useTilt(4);
-
   return (
     <div
-      ref={ref}
-      style={style}
       role="button"
       tabIndex={0}
       aria-label={`View deliverables for ${service.title}`}
@@ -25,10 +20,8 @@ const BentoCard: React.FC<BentoCardProps> = ({ service, onSelectService }) => {
           onSelectService(service);
         }
       }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
       onClick={() => onSelectService(service)}
-      className="group relative rounded-2xl lg:rounded-3xl bg-[#141414]/90 backdrop-blur-xl border border-white/10 p-4.5 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:border-white/30 hover:bg-[#181818] shadow-lg hover:shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white w-[245px] sm:w-[265px] lg:w-[calc((100%-2rem)/3)] xl:w-[calc((100%-2.5rem)/3)] 2xl:w-[calc((100%-3rem)/4)] h-[365px] sm:h-[375px] lg:h-[385px] xl:h-[395px] flex-shrink-0 snap-start select-none"
+      className="group relative rounded-2xl lg:rounded-3xl bg-[#141414]/90 backdrop-blur-xl border border-white/10 p-4.5 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-white/30 hover:bg-[#181818] shadow-lg hover:shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white w-[245px] sm:w-[265px] lg:w-[calc((100%-2rem)/3)] xl:w-[calc((100%-2.5rem)/3)] 2xl:w-[calc((100%-3rem)/4)] h-[365px] sm:h-[375px] lg:h-[385px] xl:h-[395px] flex-shrink-0 snap-start select-none"
     >
       <div>
         {/* 3D Visual Asset (Centered floating icon) */}
