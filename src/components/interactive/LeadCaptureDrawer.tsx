@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { X, ArrowRight, CheckCircle2, MessageCircle, Sparkles } from 'lucide-react';
+import { X, CheckCircle2, Sparkles } from 'lucide-react';
 import { validateEnquiry, type EnquiryPayload } from '../../types/content';
 import { siteMeta } from '../../content/siteContent';
+import { BackButton } from '../common/BackButton';
+import { ContinueButton } from '../common/ContinueButton';
+import { SendButton } from '../common/SendButton';
 
 export interface LeadCaptureDrawerProps {
   isOpen: boolean;
@@ -356,33 +359,26 @@ export const LeadCaptureDrawer: React.FC<LeadCaptureDrawerProps> = ({
           {!isSubmitted ? (
             <div className="flex items-center gap-3">
               {step > 1 && (
-                <button
-                  type="button"
+                <BackButton
                   onClick={() => setStep((step - 1) as any)}
-                  className="px-5 py-3.5 rounded-pill border border-white/20 text-xs font-mono text-white/70 hover:text-white hover:border-white transition-colors"
-                >
-                  Back
-                </button>
+                  aria-label="Go back to previous step"
+                />
               )}
 
               {step < 3 ? (
-                <button
-                  type="button"
+                <ContinueButton
                   onClick={handleNext}
-                  className="flex-1 bg-white text-neutral-950 font-bold hover:bg-neutral-100 rounded-pill py-3.5 px-6 text-sm flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-md"
+                  className="flex-1 h-14"
                 >
-                  <span>Continue</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                  Continue
+                </ContinueButton>
               ) : (
-                <button
-                  type="button"
+                <SendButton
                   onClick={handleSubmit}
-                  className="flex-1 bg-tdds-lime text-neutral-950 font-bold hover:brightness-105 rounded-pill py-3.5 px-6 text-sm flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-md"
+                  className="flex-1 h-14"
                 >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>Send Enquiry & Open WhatsApp</span>
-                </button>
+                  Send Enquiry & Open WhatsApp
+                </SendButton>
               )}
             </div>
           ) : (
