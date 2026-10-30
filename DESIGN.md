@@ -17,30 +17,30 @@ colors:
   text-light-muted: "rgba(255, 255, 255, 0.65)"
 typography:
   headline-display:
-    fontFamily: "Syne, Clash Display, sans-serif"
+    fontFamily: "Clash Display, Space Grotesk, sans-serif"
     fontSize: "64px"
-    fontWeight: 900
+    fontWeight: 700
     lineHeight: 0.95
     letterSpacing: "-0.04em"
   headline-lg:
-    fontFamily: "Syne, Clash Display, sans-serif"
+    fontFamily: "Clash Display, Space Grotesk, sans-serif"
     fontSize: "36px"
-    fontWeight: 800
+    fontWeight: 700
     lineHeight: 1.1
     letterSpacing: "-0.025em"
   headline-md:
-    fontFamily: "Plus Jakarta Sans, sans-serif"
+    fontFamily: "Poppins, sans-serif"
     fontSize: "24px"
-    fontWeight: 700
+    fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "-0.015em"
   body-lead:
-    fontFamily: "Plus Jakarta Sans, sans-serif"
+    fontFamily: "Poppins, sans-serif"
     fontSize: "18px"
     fontWeight: 400
     lineHeight: 1.6
   body-md:
-    fontFamily: "Plus Jakarta Sans, sans-serif"
+    fontFamily: "Poppins, sans-serif"
     fontSize: "15px"
     fontWeight: 400
     lineHeight: 1.65
@@ -103,8 +103,8 @@ The Design Dude Studio is an Ahmedabad-based multidisciplinary creative agency. 
 - **Energetic Lime (`#C8F169`):** Accent for category pills, live status indicators, and micro-badges.
 
 ## Typography
-- **Display Headlines:** `Syne` / `Clash Display` (Weight 800/900, tight tracking `-0.035em` to `-0.04em`).
-- **Body & Interface:** `Plus Jakarta Sans` / `Inter` (Weight 400/500/600, generous x-height, neutral tone).
+- **Display Headlines:** `Clash Display` / `Space Grotesk` (Master Ink Trap, Weight 700/800, tight tracking `-0.035em` to `-0.04em`).
+- **Body & Interface:** `Poppins` (Weight 400/500/600, geometric modern clarity).
 - **Technical & Index Indicators:** `JetBrains Mono` (Uppercase, spaced `+0.08em` tracking for technical section markers like `( 01 ) SERVICES`).
 
 ## Layout

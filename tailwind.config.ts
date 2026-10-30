@@ -24,8 +24,8 @@ export default {
         }
       },
       fontFamily: {
-        display: ['Syne', 'Clash Display', 'Plus Jakarta Sans', 'sans-serif'],
-        sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['Clash Display', 'Space Grotesk', 'sans-serif'],
+        sans: ['Poppins', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
       },
       borderRadius: {

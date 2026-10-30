@@ -21,7 +21,7 @@ const BentoCard: React.FC<BentoCardProps> = ({ service, onSelectService }) => {
         }
       }}
       onClick={() => onSelectService(service)}
-      className="group relative rounded-2xl lg:rounded-3xl bg-[#141414]/90 backdrop-blur-xl border border-white/10 p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-white/30 hover:bg-[#181818] shadow-lg hover:shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white w-[76vw] sm:w-[260px] lg:w-[calc((100%-2rem)/3)] xl:w-[calc((100%-2.5rem)/3)] 2xl:w-[calc((100%-3rem)/4)] max-w-[280px] sm:max-w-none h-[295px] sm:h-[375px] lg:h-[385px] xl:h-[395px] flex-shrink-0 snap-start select-none"
+      className="group relative rounded-2xl lg:rounded-3xl bg-[#141414]/90 backdrop-blur-xl border border-white/10 p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:border-white/30 hover:bg-[#181818] shadow-md hover:shadow-[0_20px_35px_-10px_rgba(0,0,0,0.6)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white w-[76vw] sm:w-[260px] lg:w-[calc((100%-2rem)/3)] xl:w-[calc((100%-2.5rem)/3)] 2xl:w-[calc((100%-3rem)/4)] max-w-[280px] sm:max-w-none h-[295px] sm:h-[375px] lg:h-[385px] xl:h-[395px] flex-shrink-0 snap-start select-none"
     >
       <div>
         {/* 3D Visual Asset (Centered floating icon) */}
@@ -75,7 +75,7 @@ export const BentoServiceGrid = forwardRef<HTMLDivElement, BentoServiceGridProps
     return (
       <div
         ref={ref}
-        className="flex gap-3 sm:gap-4 overflow-x-auto pb-3 sm:pb-4 pt-1 snap-x snap-mandatory no-scrollbar scroll-smooth"
+        className="flex gap-3 sm:gap-4 overflow-x-auto pt-3 pb-8 sm:pt-4 sm:pb-10 snap-x snap-mandatory no-scrollbar scroll-smooth -my-3 sm:-my-4"
       >
         {servicesData.map((service) => (
           <BentoCard
