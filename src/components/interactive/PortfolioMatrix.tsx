@@ -18,7 +18,7 @@ export const PortfolioMatrix = forwardRef<HTMLDivElement, PortfolioMatrixProps>(
             key={study.id}
             role="button"
             tabIndex={0}
-            aria-label={`View ${study.client} - ${study.title} case study`}
+            aria-label={`${study.client} — ${study.title} case study`}
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();

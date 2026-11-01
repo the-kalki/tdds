@@ -22,7 +22,7 @@ const TestimonialCardItem: React.FC<TestimonialCardItemProps> = ({
       role="button"
       tabIndex={0}
       aria-pressed={isActive}
-      aria-label={`Testimonial from ${item.brandName}${isActive ? ' (Active)' : ''}`}
+      aria-label={`${item.brandName} testimonial${isActive ? ' (Active)' : ''}`}
       onClick={onSelect}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -35,8 +35,8 @@ const TestimonialCardItem: React.FC<TestimonialCardItemProps> = ({
       <div
         className={`group relative rounded-2xl p-4 sm:p-6 flex flex-col justify-between min-h-[220px] sm:min-h-[265px] transition-all duration-300 ease-out will-change-[filter,transform,opacity] ${
           isActive
-            ? 'bg-white border-2 border-neutral-950 shadow-[0_16px_32px_-8px_rgba(0,0,0,0.12)] -translate-y-1.5 opacity-100 blur-none'
-            : 'bg-white/75 hover:bg-white border border-neutral-200/80 hover:border-neutral-900/40 shadow-sm hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08)] hover:-translate-y-1 opacity-55 hover:opacity-100 blur-[1.5px] sm:blur-[2px] hover:blur-none'
+            ? 'bg-white border-2 border-neutral-950 shadow-[0_16px_32px_-8px_rgba(0,0,0,0.12)] -translate-y-1.5'
+            : 'bg-white border border-neutral-200/90 hover:border-neutral-900/40 shadow-sm hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.08)] hover:-translate-y-1'
         }`}
       >
         <div>
@@ -46,14 +46,14 @@ const TestimonialCardItem: React.FC<TestimonialCardItemProps> = ({
               className={`w-4 h-4 sm:w-6 sm:h-6 rotate-180 transition-colors duration-300 ${
                 isActive
                   ? 'text-tdds-coral-start'
-                  : 'text-neutral-300 group-hover:text-neutral-600'
+                  : 'text-neutral-400 group-hover:text-neutral-600'
               }`}
             />
           </div>
 
           <p
             className={`text-xs sm:text-base font-normal leading-relaxed line-clamp-4 transition-colors ${
-              isActive ? 'text-neutral-950 font-medium' : 'text-neutral-700'
+              isActive ? 'text-neutral-950 font-medium' : 'text-neutral-800'
             }`}
           >
             "{item.quote}"
@@ -65,7 +65,7 @@ const TestimonialCardItem: React.FC<TestimonialCardItemProps> = ({
             className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full font-display font-bold text-xs sm:text-sm flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
               isActive
                 ? 'bg-neutral-950 text-white shadow-md ring-2 ring-tdds-coral-start/50 scale-105'
-                : 'bg-neutral-900 text-white/90 shadow-sm'
+                : 'bg-neutral-900 text-white shadow-sm'
             }`}
           >
             {item.monogram}
@@ -73,7 +73,7 @@ const TestimonialCardItem: React.FC<TestimonialCardItemProps> = ({
           <div className="min-w-0">
             <h3
               className={`font-display font-bold text-xs sm:text-sm truncate transition-colors ${
-                isActive ? 'text-neutral-950 font-extrabold' : 'text-neutral-800'
+                isActive ? 'text-neutral-950 font-extrabold' : 'text-neutral-900'
               }`}
             >
               {item.brandName}

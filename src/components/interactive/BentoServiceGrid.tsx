@@ -13,7 +13,7 @@ const BentoCard: React.FC<BentoCardProps> = ({ service, onSelectService }) => {
     <div
       role="button"
       tabIndex={0}
-      aria-label={`View deliverables for ${service.title}`}
+      aria-label={`${service.title} — Explore Scope deliverables`}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
@@ -21,7 +21,7 @@ const BentoCard: React.FC<BentoCardProps> = ({ service, onSelectService }) => {
         }
       }}
       onClick={() => onSelectService(service)}
-      className="group relative rounded-2xl lg:rounded-3xl bg-[#141414]/90 backdrop-blur-xl border border-white/10 p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:border-white/30 hover:bg-[#181818] shadow-md hover:shadow-[0_20px_35px_-10px_rgba(0,0,0,0.6)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white w-[76vw] sm:w-[260px] lg:w-[calc((100%-2rem)/3)] xl:w-[calc((100%-2.5rem)/3)] 2xl:w-[calc((100%-3rem)/4)] max-w-[280px] sm:max-w-none h-[295px] sm:h-[375px] lg:h-[385px] xl:h-[395px] flex-shrink-0 snap-start select-none"
+      className="group relative rounded-2xl lg:rounded-3xl bg-[#141414]/90 backdrop-blur-xl border border-white/10 p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:border-white/30 hover:bg-[#181818] shadow-md hover:shadow-[0_20px_35px_-10px_rgba(0,0,0,0.6)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white w-[76vw] sm:w-[260px] lg:w-[calc((100%-2rem)/3)] xl:w-[calc((100%-2.5rem)/3)] 2xl:w-[calc((100%-3rem)/4)] max-w-[280px] sm:max-w-none h-[310px] sm:h-[375px] lg:h-[385px] xl:h-[395px] flex-shrink-0 snap-start select-none"
     >
       <div>
         {/* 3D Visual Asset (Centered floating icon) */}
@@ -44,12 +44,10 @@ const BentoCard: React.FC<BentoCardProps> = ({ service, onSelectService }) => {
 
         {/* Deliverables Feature Bullets (Scannable checklist with accent markers) */}
         <ul className="border-t border-white/10 pt-2.5 sm:pt-3 space-y-1.5 sm:space-y-2">
-          {service.deliverables.slice(0, 5).map((item, idx) => (
+          {service.deliverables.map((item, idx) => (
             <li
               key={idx}
-              className={`flex items-center gap-2 text-[11px] sm:text-xs text-white/80 group-hover:text-white leading-snug font-medium transition-colors ${
-                idx >= 4 ? 'hidden sm:flex' : ''
-              }`}
+              className="flex items-center gap-2 text-[11px] sm:text-xs text-white/80 group-hover:text-white leading-snug font-medium transition-colors"
             >
               <span
                 aria-hidden="true"

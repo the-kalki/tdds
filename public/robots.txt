@@ -21,3 +21,4 @@ User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://thedesigndudestudio.com/sitemap.xml
+

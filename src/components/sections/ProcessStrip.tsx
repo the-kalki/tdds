@@ -19,13 +19,13 @@ export const ProcessStrip: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {processStepsData.map((step) => (
             <div key={step.step} className="flex flex-col">
-              <span className="font-mono text-xs text-tdds-coral-start font-bold uppercase tracking-wider mb-2">
+              <span className="font-mono text-xs text-[#A7280E] font-bold uppercase tracking-wider mb-2">
                 STEP {step.step}
               </span>
               <h3 className="font-display font-bold text-lg text-neutral-950 mb-2">
                 {step.headline}
               </h3>
-              <p className="text-neutral-600 text-xs sm:text-sm leading-relaxed">
+              <p className="text-neutral-700 text-xs sm:text-sm leading-relaxed">
                 {step.description}
               </p>
             </div>

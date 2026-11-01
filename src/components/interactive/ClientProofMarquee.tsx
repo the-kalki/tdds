@@ -73,7 +73,7 @@ export const ClientProofMarquee: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-shrink-0 flex flex-col items-center justify-center text-center group cursor-pointer select-none transition-transform duration-300 hover:scale-105 no-underline focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40 rounded-sm"
-                  aria-label={`Visit ${brand.name} on Instagram`}
+                  aria-label={`${brand.name} on Instagram`}
                 >
                   {innerBrandContent}
                 </a>
