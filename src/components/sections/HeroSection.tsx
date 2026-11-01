@@ -1,26 +1,8 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { ArrowUpRight, Play } from 'lucide-react';
 import { SectionTag } from '../common/SectionTag';
 import { FluidImpactText } from '../interactive/FluidImpactText';
 import { heroContent } from '../../content/siteContent';
-
-const LiquidGlassHero = lazy(() => import('../interactive/LiquidGlassHero'));
-const prefersStatic =
-  typeof window !== 'undefined' &&
-  (window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-    !document.createElement('canvas').getContext('webgl2')); // GPU disabled/blocked → skip the 268 KB 3D chunk
-
-const heroFallback = (
-  <img
-    src="/images/hero-logo.webp"
-    alt="The Design Dude Studio Logo"
-    className="w-full h-full object-contain filter drop-shadow-2xl select-none pointer-events-none"
-    width={440}
-    height={440}
-    loading="eager"
-    fetchPriority="high"
-  />
-);
 
 export interface HeroSectionProps {
   onOpenLeadDrawer: () => void;
@@ -82,13 +64,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Right Column: 3D Artwork Monogram + Philosophy Tags (7 cols on lg/xl) */}
           <div className="lg:col-span-7 relative flex items-center justify-center lg:justify-start lg:pl-4 xl:pl-8 mt-2 lg:mt-0">
             <div className="relative flex items-center justify-center lg:justify-start gap-4 sm:gap-10 xl:gap-12 w-full">
-              {/* 3D Glass Monogram Sculpture */}
+              {/* Studio Artwork Monogram Logo */}
               <div className="relative w-[210px] sm:w-[320px] lg:w-[390px] xl:w-[440px] aspect-square flex-shrink-0 flex items-center justify-center transition-transform duration-700 ease-editorial hover:scale-[1.02]">
-                {prefersStatic ? heroFallback : (
-                  <Suspense fallback={heroFallback}>
-                    <LiquidGlassHero fallback={heroFallback} />
-                  </Suspense>
-                )}
+                <img
+                  src="/images/hero-logo.webp"
+                  alt="The Design Dude Studio Logo"
+                  className="w-full h-full object-contain filter drop-shadow-2xl select-none"
+                  width={440}
+                  height={440}
+                  loading="eager"
+                  fetchPriority="high"
+                />
               </div>
 
               {/* Floating Philosophy Vertical Tags with generous breathing room to the right */}
