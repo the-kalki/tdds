@@ -9,7 +9,7 @@ export interface CaseStudy {
 }
 
 export interface ServiceCompartment {
-  id: 'content-video' | 'social-media' | 'advertising-growth' | 'branding-design';
+  id: 'content-video' | 'web-development' | 'social-media' | 'advertising-growth' | 'branding-design';
   title: string;
   shortDescription: string;
   deliverables: string[];
@@ -53,8 +53,8 @@ export interface EnquiryPayload {
   brand?: string;
   emailOrPhone: string;
   serviceNeeded:
-    | "Web Development"
     | "Content & Video"
+    | "Web Development"
     | "Social Media"
     | "Advertising & Growth"
     | "Branding & Design"

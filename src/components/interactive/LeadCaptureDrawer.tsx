@@ -12,6 +12,18 @@ export interface LeadCaptureDrawerProps {
   preSelectedService?: string;
 }
 
+const normalizeServiceOption = (raw?: string): EnquiryPayload['serviceNeeded'] => {
+  if (!raw) return 'Content & Video';
+  const lower = raw.toLowerCase();
+  if (lower.includes('video') || lower.includes('content')) return 'Content & Video';
+  if (lower.includes('web')) return 'Web Development';
+  if (lower.includes('social')) return 'Social Media';
+  if (lower.includes('advertising') || lower.includes('performance') || lower.includes('growth')) return 'Advertising & Growth';
+  if (lower.includes('branding') || lower.includes('design')) return 'Branding & Design';
+  if (lower.includes('full-stack')) return 'Full-Stack Creative';
+  return 'Content & Video';
+};
+
 export const LeadCaptureDrawer: React.FC<LeadCaptureDrawerProps> = ({
   isOpen,
   onClose,
@@ -22,7 +34,7 @@ export const LeadCaptureDrawer: React.FC<LeadCaptureDrawerProps> = ({
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const [formData, setFormData] = useState<Partial<EnquiryPayload>>({
-    serviceNeeded: (preSelectedService as any) || 'Web Development',
+    serviceNeeded: normalizeServiceOption(preSelectedService),
     estimatedBudget: '₹50,000 - ₹1,50,000',
     name: '',
     brand: '',
@@ -36,7 +48,7 @@ export const LeadCaptureDrawer: React.FC<LeadCaptureDrawerProps> = ({
     if (preSelectedService) {
       setFormData((prev) => ({
         ...prev,
-        serviceNeeded: preSelectedService as any,
+        serviceNeeded: normalizeServiceOption(preSelectedService),
       }));
     }
   }, [preSelectedService]);
@@ -70,8 +82,8 @@ export const LeadCaptureDrawer: React.FC<LeadCaptureDrawerProps> = ({
   if (!isOpen) return null;
 
   const servicesList = [
-    'Web Development',
     'Content & Video',
+    'Web Development',
     'Social Media',
     'Advertising & Growth',
     'Branding & Design',

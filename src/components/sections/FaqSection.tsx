@@ -41,15 +41,17 @@ export const FaqSection: React.FC = () => {
                 
                 {/* Structured Answer Container: High-Scannability Typography */}
                 <div className="pt-3.5 pb-2 pr-4 sm:pr-10 text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans max-w-prose space-y-2.5">
-                  {/* Opening Summary Sentence */}
+                  {/* Opening Summary Sentence (Renders inline <strong> markup cleanly) */}
                   {faq.summary ? (
-                    <p className="text-neutral-700 font-normal">
-                      {faq.summary}
-                    </p>
+                    <p
+                      className="text-neutral-700 font-normal [&>strong]:text-neutral-900 [&>strong]:font-semibold"
+                      dangerouslySetInnerHTML={{ __html: faq.summary }}
+                    />
                   ) : (
-                    <p className="text-neutral-700 font-normal">
-                      {faq.answer}
-                    </p>
+                    <p
+                      className="text-neutral-700 font-normal [&>strong]:text-neutral-900 [&>strong]:font-semibold"
+                      dangerouslySetInnerHTML={{ __html: faq.answer || '' }}
+                    />
                   )}
 
                   {/* Multi-part Breakdown with Inline Bolding */}

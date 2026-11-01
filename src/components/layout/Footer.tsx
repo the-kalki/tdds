@@ -70,7 +70,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
               </p>
               <p className="text-white/80 flex items-center gap-1.5">
                 <span className="text-tdds-coral-start">✦</span>
-                <span>Web Development, Video & Brand Systems</span>
+                <span>Video Production, Web Development & Branding</span>
               </p>
             </div>
           </div>

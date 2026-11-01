@@ -27,10 +27,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {heroContent.locationBadge}
             </SectionTag>
 
-            {/* Main Headline H1 */}
-            <h1 className="font-display font-black text-4xl sm:text-6xl lg:text-6xl xl:text-7xl tracking-tight text-neutral-950 uppercase leading-[0.92] mb-4 sm:mb-6 select-none">
-              <span className="block">IDEAS</span>
-              <span className="block">INTO</span>
+            {/* Main Headline H1: Title Case for "Ideas Into", strict ALL CAPS for "IMPACT." */}
+            <h1 className="font-display font-black text-4xl sm:text-6xl lg:text-6xl xl:text-7xl tracking-tight text-neutral-950 leading-[0.92] mb-4 sm:mb-6 select-none">
+              <span className="block">Ideas</span>
+              <span className="block">Into</span>
               <FluidImpactText className="mt-1 sm:mt-1.5" />
             </h1>
 
