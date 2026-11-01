@@ -40,10 +40,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </p>
 
             {/* Action Group */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto max-w-[320px] sm:max-w-none">
               <button
                 onClick={onOpenLeadDrawer}
-                className="group inline-flex items-center gap-2 bg-neutral-950 text-white hover:bg-black rounded-pill px-5.5 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-base font-semibold transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg whitespace-nowrap"
+                className="group inline-flex items-center justify-center gap-2 bg-neutral-950 text-white hover:bg-black rounded-pill px-6 sm:px-7 py-3.5 text-sm sm:text-base font-semibold transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg w-full sm:w-auto"
               >
                 <span>{heroContent.primaryCta}</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -51,7 +51,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               <button
                 onClick={onOpenShowreel}
-                className="group inline-flex items-center gap-2.5 sm:gap-3 border border-neutral-300 hover:border-neutral-950 hover:bg-neutral-900/5 text-neutral-900 rounded-pill px-5.5 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-base font-medium transition-all duration-200 active:scale-95 whitespace-nowrap"
+                className="group inline-flex items-center justify-center gap-2.5 sm:gap-3 border border-neutral-300 hover:border-neutral-950 hover:bg-neutral-900/5 text-neutral-900 rounded-pill px-6 sm:px-7 py-3.5 text-sm sm:text-base font-medium transition-all duration-200 active:scale-95 w-full sm:w-auto"
               >
                 <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-neutral-400 flex items-center justify-center transition-transform duration-200 group-hover:scale-110 flex-shrink-0">
                   <Play className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-neutral-900 text-neutral-900 ml-0.5" />
