@@ -5,7 +5,7 @@ import { faqsData } from '../../content/siteContent';
 
 export const FaqSection: React.FC = () => {
   return (
-    <section id="about" className="pt-16 pb-14 sm:py-20 lg:py-28 bg-tdds-ivory text-neutral-950 relative border-t border-tdds-border-light">
+    <section id="about" className="section-defer-render pt-16 pb-14 sm:py-20 lg:py-28 bg-tdds-ivory text-neutral-950 relative border-t border-tdds-border-light">
       <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Left Column: Heading */}

@@ -4,7 +4,7 @@ import { processStepsData } from '../../content/siteContent';
 
 export const ProcessStrip: React.FC = () => {
   return (
-    <section id="process" className="pt-16 pb-14 sm:py-16 lg:py-20 bg-tdds-secondary border-y border-tdds-border-light relative">
+    <section id="process" className="section-defer-render pt-16 pb-14 sm:py-16 lg:py-20 bg-tdds-secondary border-y border-tdds-border-light relative">
       <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
           <SectionTag>THE WAY WE WORK</SectionTag>

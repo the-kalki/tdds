@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { HeroSection } from './components/sections/HeroSection';
 import { ServicesBentoSection } from './components/sections/ServicesBentoSection';
@@ -8,12 +8,23 @@ import { TestimonialsSection } from './components/sections/TestimonialsSection';
 import { ProcessStrip } from './components/sections/ProcessStrip';
 import { FaqSection } from './components/sections/FaqSection';
 import { Footer } from './components/layout/Footer';
-import { LeadCaptureDrawer } from './components/interactive/LeadCaptureDrawer';
-import { DeliverablesDrawer } from './components/interactive/DeliverablesDrawer';
-import { VideoLightboxModal } from './components/interactive/VideoLightboxModal';
-import { LegalModal } from './components/interactive/LegalModal';
 import type { ServiceCompartment } from './types/content';
 import { heroContent } from './content/siteContent';
+
+// Lazy-load interactive modals & drawers so their code and legal/form payloads
+// are excluded from the critical initial bundle and only parsed on user interaction.
+const LeadCaptureDrawer = lazy(() =>
+  import('./components/interactive/LeadCaptureDrawer').then((m) => ({ default: m.LeadCaptureDrawer }))
+);
+const DeliverablesDrawer = lazy(() =>
+  import('./components/interactive/DeliverablesDrawer').then((m) => ({ default: m.DeliverablesDrawer }))
+);
+const VideoLightboxModal = lazy(() =>
+  import('./components/interactive/VideoLightboxModal').then((m) => ({ default: m.VideoLightboxModal }))
+);
+const LegalModal = lazy(() =>
+  import('./components/interactive/LegalModal').then((m) => ({ default: m.LegalModal }))
+);
 
 export const App: React.FC = () => {
   const [isLeadDrawerOpen, setIsLeadDrawerOpen] = useState(false);
@@ -129,34 +140,45 @@ export const App: React.FC = () => {
         onOpenLegal={handleOpenLegal}
       />
 
-      {/* Interactive Overlays & Modals */}
-      <LeadCaptureDrawer
-        isOpen={isLeadDrawerOpen}
-        onClose={handleCloseLeadDrawer}
-        preSelectedService={selectedService}
-      />
+      {/* Interactive Overlays & Modals (Mounted & fetched on demand) */}
+      <Suspense fallback={null}>
+        {isLeadDrawerOpen && (
+          <LeadCaptureDrawer
+            key={`lead-${selectedService ?? 'default'}`}
+            isOpen={isLeadDrawerOpen}
+            onClose={handleCloseLeadDrawer}
+            preSelectedService={selectedService}
+          />
+        )}
 
-      <DeliverablesDrawer
-        isOpen={!!activeDrawerService}
-        service={activeDrawerService}
-        onClose={() => setActiveDrawerService(null)}
-        onEnquire={(title) => handleOpenLeadDrawer(title)}
-      />
+        {activeDrawerService && (
+          <DeliverablesDrawer
+            isOpen={!!activeDrawerService}
+            service={activeDrawerService}
+            onClose={() => setActiveDrawerService(null)}
+            onEnquire={(title) => handleOpenLeadDrawer(title)}
+          />
+        )}
 
-      <VideoLightboxModal
-        isOpen={videoModal.isOpen}
-        onClose={handleCloseVideoModal}
-        videoUrl={videoModal.videoUrl}
-        title={videoModal.title}
-      />
+        {videoModal.isOpen && (
+          <VideoLightboxModal
+            isOpen={videoModal.isOpen}
+            onClose={handleCloseVideoModal}
+            videoUrl={videoModal.videoUrl}
+            title={videoModal.title}
+          />
+        )}
 
-      <LegalModal
-        key={`${legalModal.isOpen ? 'open' : 'closed'}-${legalModal.initialDoc}`}
-        isOpen={legalModal.isOpen}
-        initialDocument={legalModal.initialDoc}
-        onClose={handleCloseLegal}
-        onOpenLeadDrawer={() => handleOpenLeadDrawer()}
-      />
+        {legalModal.isOpen && (
+          <LegalModal
+            key={`${legalModal.isOpen ? 'open' : 'closed'}-${legalModal.initialDoc}`}
+            isOpen={legalModal.isOpen}
+            initialDocument={legalModal.initialDoc}
+            onClose={handleCloseLegal}
+            onOpenLeadDrawer={() => handleOpenLeadDrawer()}
+          />
+        )}
+      </Suspense>
     </div>
   );
 };

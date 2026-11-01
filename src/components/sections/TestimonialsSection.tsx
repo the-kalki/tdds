@@ -7,7 +7,7 @@ export const TestimonialsSection: React.FC = () => {
   const sliderRef = useRef<TestimonialSliderRef>(null);
 
   return (
-    <section id="testimonials" className="pt-20 pb-14 sm:py-16 lg:py-20 bg-tdds-ivory text-neutral-950 relative overflow-hidden">
+    <section id="testimonials" className="section-defer-render pt-20 pb-14 sm:py-16 lg:py-20 bg-tdds-ivory text-neutral-950 relative overflow-hidden">
       <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-12">
         {/* Top Header Bar: SectionTag on Left + Navigation Controls on Right */}
         <div className="flex items-center justify-between mb-5 sm:mb-8 lg:mb-10">

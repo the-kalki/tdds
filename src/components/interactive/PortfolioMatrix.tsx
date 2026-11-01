@@ -39,6 +39,7 @@ export const PortfolioMatrix = forwardRef<HTMLDivElement, PortfolioMatrixProps>(
               alt={`${study.client} - ${study.title}`}
               className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-editorial group-hover:scale-105"
               loading="lazy"
+              decoding="async"
               width={717}
               height={960}
             />

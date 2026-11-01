@@ -7,7 +7,7 @@ export const ClientProofMarquee: React.FC = () => {
   const marqueeItems = [...clientBrandsData, ...clientBrandsData];
 
   return (
-    <section id="clients" className="py-14 sm:py-16 bg-tdds-obsidian text-white border-y border-white/10 relative overflow-hidden">
+    <section id="clients" className="section-defer-render py-14 sm:py-16 bg-tdds-obsidian text-white border-y border-white/10 relative overflow-hidden">
       {/* Section Header Lockup */}
       <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-12 mb-8 sm:mb-10 flex flex-col items-center text-center">
         <SectionTag theme="dark" className="mb-3">

@@ -31,6 +31,7 @@ const BentoCard: React.FC<BentoCardProps> = ({ service, onSelectService }) => {
             alt={service.title}
             className="max-h-full max-w-[85%] object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
+            decoding="async"
             width={200}
             height={110}
           />

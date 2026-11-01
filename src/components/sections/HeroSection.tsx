@@ -73,6 +73,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   width={440}
                   height={440}
                   loading="eager"
+                  decoding="async"
                   fetchPriority="high"
                 />
               </div>

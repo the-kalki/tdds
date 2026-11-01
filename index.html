@@ -15,11 +15,26 @@
     <meta property="og:description" content="We create content, campaigns and digital experiences that make brands impossible to ignore." />
     <meta property="og:image" content="/images/hero-logo.webp" />
 
-    <!-- Google Fonts & Fontshare Preconnect & Stylesheets -->
+    <!-- Preload Critical LCP Hero Artwork & Local Display Fonts -->
+    <link rel="preload" as="image" href="/images/hero-logo.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="font" href="/fonts/ClashDisplay-Bold.woff2" type="font/woff2" crossorigin />
+    <link rel="preload" as="font" href="/fonts/ClashDisplay-Semibold.woff2" type="font/woff2" crossorigin />
+
+    <!-- Google Fonts Preconnect & Non-Blocking Stylesheet -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" />
-    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@700,600&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"
+      />
+    </noscript>
 
     <!-- Schema.org JSON-LD Local Entity Specification -->
     <script type="application/ld+json">

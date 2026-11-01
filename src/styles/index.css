@@ -58,15 +58,12 @@
   @keyframes fluidMeshFlow {
     0% {
       background-position: 0% 50%;
-      filter: hue-rotate(0deg);
     }
     50% {
       background-position: 100% 50%;
-      filter: hue-rotate(15deg);
     }
     100% {
       background-position: 0% 50%;
-      filter: hue-rotate(0deg);
     }
   }
 
@@ -157,15 +154,12 @@
   @keyframes footerLiquidFlow {
     0% {
       background-position: 0% 45%;
-      filter: saturate(1.25) hue-rotate(0deg);
     }
     50% {
       background-position: 100% 65%;
-      filter: saturate(1.45) hue-rotate(15deg);
     }
     100% {
       background-position: 0% 45%;
-      filter: saturate(1.25) hue-rotate(0deg);
     }
   }
 
@@ -178,7 +172,6 @@
     background-size: 220% 220%;
     animation: footerLiquidFlow 11s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     transform: translateZ(0);
-    will-change: background-position;
     contain: strict;
   }
 
@@ -202,11 +195,17 @@
       radial-gradient(ellipse 80% 55% at 25% 90%, rgba(216, 27, 96, 0.48) 0%, transparent 55%),
       radial-gradient(circle 380px at 50% 85%, rgba(255, 122, 0, 0.38) 0%, transparent 60%),
       radial-gradient(ellipse 70% 50% at 90% 75%, rgba(36, 18, 106, 0.55) 0%, transparent 65%);
-    filter: blur(40px);
+    filter: blur(28px);
     transform: translate3d(0, 0, 0);
     animation: liquidWaveFlow 12s ease-in-out infinite;
     will-change: transform, opacity;
     contain: layout style paint;
+  }
+
+  /* Below-the-fold layout/paint containment for reduced initial Style & Layout main-thread work */
+  .section-defer-render {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 650px;
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -45,24 +45,7 @@ export const LeadCaptureDrawer: React.FC<LeadCaptureDrawerProps> = ({
   const closeBtnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    if (preSelectedService) {
-      setFormData((prev) => ({
-        ...prev,
-        serviceNeeded: normalizeServiceOption(preSelectedService),
-      }));
-    }
-  }, [preSelectedService]);
-
-  useEffect(() => {
-    if (!isOpen) {
-      // Reset state after closed
-      setTimeout(() => {
-        setStep(1);
-        setIsSubmitted(false);
-        setErrors({});
-      }, 300);
-      return;
-    }
+    if (!isOpen) return;
 
     closeBtnRef.current?.focus();
 

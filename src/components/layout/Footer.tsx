@@ -15,7 +15,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
   return (
     <footer
       id="contact"
-      className="relative bg-[#080808] text-white min-h-screen min-h-[100dvh] flex flex-col justify-between pt-20 sm:pt-28 lg:pt-32 pb-10 sm:pb-12 overflow-hidden border-t border-white/10"
+      className="section-defer-render relative bg-[#080808] text-white min-h-screen min-h-[100dvh] flex flex-col justify-between pt-20 sm:pt-28 lg:pt-32 pb-10 sm:pb-12 overflow-hidden border-t border-white/10"
     >
       {/* 01. Dynamic Multi-Stop Liquid Aurora Canvas Flow (100% Pure CSS Animation - 0 Images) */}
       <div className="footer-liquid-canvas absolute inset-0 pointer-events-none" />

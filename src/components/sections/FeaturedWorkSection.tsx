@@ -13,7 +13,7 @@ export const FeaturedWorkSection: React.FC<FeaturedWorkSectionProps> = ({
   onOpenLeadDrawer,
 }) => {
   return (
-    <section id="work" className="pt-20 pb-14 sm:py-16 lg:py-20 bg-tdds-ivory text-neutral-950 relative overflow-hidden">
+    <section id="work" className="section-defer-render pt-20 pb-14 sm:py-16 lg:py-20 bg-tdds-ivory text-neutral-950 relative overflow-hidden">
       <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row items-start gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
           {/* Left Column: Heading Lockup (Strictly aligned with Services & Testimonials) */}
