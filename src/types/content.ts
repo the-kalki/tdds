@@ -22,6 +22,7 @@ export interface ClientBrand {
   industry?: string;
   style?: 'bold' | 'serif' | 'modern' | 'monogram' | 'accent';
   isAccent?: boolean;
+  instagramUrl?: string; // Optional direct Instagram profile link
 }
 
 export interface Testimonial {
@@ -41,7 +42,10 @@ export interface ProcessStep {
 
 export interface FaqItem {
   question: string;
-  answer: string;
+  answer?: string;
+  summary?: string;
+  bullets?: string[];
+  takeaway?: string;
 }
 
 export interface EnquiryPayload {
@@ -49,6 +53,7 @@ export interface EnquiryPayload {
   brand?: string;
   emailOrPhone: string;
   serviceNeeded:
+    | "Web Development"
     | "Content & Video"
     | "Social Media"
     | "Advertising & Growth"

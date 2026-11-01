@@ -30,17 +30,49 @@ export const FaqSection: React.FC = () => {
                 open={idx === 0}
                 className="group py-5 select-none"
               >
-                <summary className="w-full flex items-center justify-between text-left gap-4 cursor-pointer list-none focus:outline-none">
-                  <span className="font-display font-bold text-base sm:text-lg text-neutral-900 group-hover:text-black transition-colors">
+                <summary className="w-full flex items-center justify-between text-left gap-4 cursor-pointer list-none focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 rounded-sm">
+                  <span className="font-display font-bold text-base sm:text-lg text-neutral-950 group-hover:text-black transition-colors leading-snug">
                     {faq.question}
                   </span>
                   <span className="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 group-hover:bg-neutral-900 group-hover:text-white group-open:bg-neutral-900 group-open:text-white transition-all flex-shrink-0">
                     <Plus className="w-4 h-4 transition-transform duration-200 group-open:rotate-45" />
                   </span>
                 </summary>
-                <p className="pt-3 pb-2 pr-12 text-sm text-neutral-600 leading-relaxed font-sans">
-                  {faq.answer}
-                </p>
+                
+                {/* Structured Answer Container: High-Scannability Typography */}
+                <div className="pt-3.5 pb-2 pr-4 sm:pr-10 text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans max-w-prose space-y-2.5">
+                  {/* Opening Summary Sentence */}
+                  {faq.summary ? (
+                    <p className="text-neutral-700 font-normal">
+                      {faq.summary}
+                    </p>
+                  ) : (
+                    <p className="text-neutral-700 font-normal">
+                      {faq.answer}
+                    </p>
+                  )}
+
+                  {/* Multi-part Breakdown with Inline Bolding */}
+                  {faq.bullets && faq.bullets.length > 0 && (
+                    <ul className="space-y-1.5 pl-4 sm:pl-5 list-disc text-neutral-600 marker:text-neutral-400">
+                      {faq.bullets.map((bullet, bIdx) => (
+                        <li
+                          key={bIdx}
+                          dangerouslySetInnerHTML={{ __html: bullet }}
+                          className="leading-relaxed [&>strong]:text-neutral-900 [&>strong]:font-semibold"
+                        />
+                      ))}
+                    </ul>
+                  )}
+
+                  {/* Core Takeaway / Strategic Reassurance */}
+                  {faq.takeaway && (
+                    <p
+                      className="text-xs sm:text-sm text-neutral-700 font-normal pt-2 border-t border-neutral-200/60 [&>strong]:text-neutral-950 [&>strong]:font-bold"
+                      dangerouslySetInnerHTML={{ __html: faq.takeaway }}
+                    />
+                  )}
+                </div>
               </details>
             ))}
           </div>

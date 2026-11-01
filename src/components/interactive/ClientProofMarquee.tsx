@@ -29,12 +29,11 @@ export const ClientProofMarquee: React.FC = () => {
           {marqueeItems.map((brand, idx) => {
             const isSerif = brand.style === 'serif';
             const isMonogram = brand.style === 'monogram';
+            const hasInstagram = Boolean(brand.instagramUrl && brand.instagramUrl.trim().length > 0);
 
-            return (
-              <div
-                key={`${brand.name}-${idx}`}
-                className="flex-shrink-0 flex flex-col items-center justify-center text-center group cursor-default select-none transition-transform duration-300 hover:scale-105"
-              >
+            // Reusable Inner Brand Trigger Content
+            const innerBrandContent = (
+              <>
                 {/* Brand Wordmark (Top Layer) */}
                 <div
                   className={`leading-none flex items-center justify-center gap-1 transition-all duration-300 ${
@@ -61,6 +60,32 @@ export const ClientProofMarquee: React.FC = () => {
                     {brand.tagline}
                   </span>
                 )}
+              </>
+            );
+
+            // Conditional Rendering: If instagramUrl is present, wrap with verified external anchor
+            if (hasInstagram) {
+              return (
+                <a
+                  key={`${brand.name}-${idx}`}
+                  href={brand.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-shrink-0 flex flex-col items-center justify-center text-center group cursor-pointer select-none transition-transform duration-300 hover:scale-105 no-underline focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40 rounded-sm"
+                  aria-label={`Visit ${brand.name} on Instagram`}
+                >
+                  {innerBrandContent}
+                </a>
+              );
+            }
+
+            // Graceful Fallback: Render in exact current static state (no empty href, no broken links, cursor-default)
+            return (
+              <div
+                key={`${brand.name}-${idx}`}
+                className="flex-shrink-0 flex flex-col items-center justify-center text-center group cursor-default select-none transition-transform duration-300 hover:scale-105"
+              >
+                {innerBrandContent}
               </div>
             );
           })}

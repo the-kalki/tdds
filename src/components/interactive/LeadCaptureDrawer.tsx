@@ -22,7 +22,7 @@ export const LeadCaptureDrawer: React.FC<LeadCaptureDrawerProps> = ({
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const [formData, setFormData] = useState<Partial<EnquiryPayload>>({
-    serviceNeeded: (preSelectedService as any) || 'Full-Stack Creative',
+    serviceNeeded: (preSelectedService as any) || 'Web Development',
     estimatedBudget: '₹50,000 - ₹1,50,000',
     name: '',
     brand: '',
@@ -70,6 +70,7 @@ export const LeadCaptureDrawer: React.FC<LeadCaptureDrawerProps> = ({
   if (!isOpen) return null;
 
   const servicesList = [
+    'Web Development',
     'Content & Video',
     'Social Media',
     'Advertising & Growth',

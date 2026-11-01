@@ -28,16 +28,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
 
       {/* 04. Section Content */}
       <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-12 relative z-10 w-full flex-1 flex flex-col justify-between">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-14 my-auto py-8 sm:py-14">
-          {/* Left Column: Heading Lockup */}
-          <div className="max-w-2xl">
-            {/* Section Tag without numbering */}
+        {/* Work With Us / Studio Engagement Container */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-12 my-auto py-8 sm:py-14 items-start lg:items-end">
+          {/* Column 1: Heading Lockup (5 cols on lg) */}
+          <div className="lg:col-span-5 max-w-xl">
+            {/* Section Tag */}
             <SectionTag theme="dark" className="mb-4 sm:mb-8 font-mono">
-              LET'S CREATE
+              WORK WITH US
             </SectionTag>
 
             {/* Massive Display H2 */}
-            <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] tracking-tight leading-[1.0] text-white uppercase select-none">
+            <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-5xl xl:text-[3.85rem] tracking-tight leading-[1.0] text-white uppercase select-none">
               Have a good<br />idea?
               <span className="block text-gradient-coral mt-1.5 sm:mt-2.5">
                 Let's make it happen.
@@ -45,13 +46,42 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
             </h2>
           </div>
 
-          {/* Right Column: Equal-Width Precision Vertical Stack (Option A) */}
-          <div className="flex flex-col items-stretch sm:items-end gap-3.5 w-full sm:w-auto flex-shrink-0">
+          {/* Column 2 (NEW COLUMN): Studio Direct Engagement & Availability (4 cols on lg) */}
+          <div className="lg:col-span-4 flex flex-col justify-end gap-3 sm:gap-4 text-white/70 text-xs sm:text-sm border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0 md:pl-6 lg:pl-8">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-tdds-lime animate-pulse" />
+              <span className="font-mono text-[11px] sm:text-xs text-tdds-lime font-bold uppercase tracking-wider">
+                Now Booking Q1 / Q2
+              </span>
+            </div>
+
+            <p className="leading-relaxed text-white/75 text-xs sm:text-sm">
+              We partner with ambitious founders, established retail brands, and high-growth teams ready to command industry attention.
+            </p>
+
+            <div className="space-y-1.5 text-[11px] sm:text-xs font-mono text-white/50 pt-1">
+              <p className="text-white/80 flex items-center gap-1.5">
+                <span className="text-tdds-coral-start">✦</span>
+                <span>Fast Onboarding: Discovery brief within 24h</span>
+              </p>
+              <p className="text-white/80 flex items-center gap-1.5">
+                <span className="text-tdds-coral-start">✦</span>
+                <span>100% Commercial Asset & Master Ownership</span>
+              </p>
+              <p className="text-white/80 flex items-center gap-1.5">
+                <span className="text-tdds-coral-start">✦</span>
+                <span>Web Development, Video & Brand Systems</span>
+              </p>
+            </div>
+          </div>
+
+          {/* Column 3: Action Buttons (3 cols on lg) */}
+          <div className="lg:col-span-3 flex flex-col items-stretch sm:items-start lg:items-end gap-3.5 w-full flex-shrink-0">
             {/* Primary Action Button */}
             <button
               onClick={onOpenLeadDrawer}
               className="group inline-flex items-center justify-center gap-2.5 bg-white text-neutral-950 hover:bg-neutral-100 rounded-pill w-full sm:w-[230px] py-4 text-sm sm:text-base font-bold transition-all duration-300 active:scale-95 shadow-xl hover:shadow-2xl hover:brightness-105 cursor-pointer"
-              aria-label="Start a Project"
+              aria-label="Work With Us - Start a Project"
             >
               <span>Start a Project</span>
               <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
