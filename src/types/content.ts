@@ -20,9 +20,11 @@ export interface ClientBrand {
   name: string;
   tagline?: string;
   industry?: string;
+  category?: 'fashion' | 'weddings' | 'lifestyle' | 'corporate';
   style?: 'bold' | 'serif' | 'modern' | 'monogram' | 'accent';
   isAccent?: boolean;
   instagramUrl?: string; // Optional direct Instagram profile link
+  servicesDelivered?: string[];
 }
 
 export interface Testimonial {
