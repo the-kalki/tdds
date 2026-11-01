@@ -37,27 +37,34 @@ const BentoCard: React.FC<BentoCardProps> = ({ service, onSelectService }) => {
         </div>
 
         {/* Title */}
-        <h3 className="font-display font-bold text-sm sm:text-[15px] text-white mb-2 sm:mb-2.5 tracking-tight group-hover:text-tdds-coral-start transition-colors">
+        <h3 className="font-display font-bold text-sm sm:text-base text-white mb-2 sm:mb-2.5 tracking-tight leading-snug group-hover:text-tdds-coral-start transition-colors">
           {service.title}
         </h3>
 
-        {/* Deliverables Checklist (Clean vertical list, responsive item count) */}
-        <ul className="space-y-0.5 sm:space-y-1">
+        {/* Deliverables Feature Bullets (Scannable checklist with accent markers) */}
+        <ul className="border-t border-white/10 pt-2.5 sm:pt-3 space-y-1.5 sm:space-y-2">
           {service.deliverables.slice(0, 5).map((item, idx) => (
             <li
               key={idx}
-              className={`text-[11px] sm:text-xs text-white/60 leading-tight font-normal truncate ${
-                idx >= 4 ? 'hidden sm:block' : ''
+              className={`flex items-center gap-2 text-[11px] sm:text-xs text-white/75 group-hover:text-white/95 leading-snug font-medium transition-colors ${
+                idx >= 4 ? 'hidden sm:flex' : ''
               }`}
             >
-              {item}
+              <span
+                aria-hidden="true"
+                className="w-1.5 h-1.5 rounded-full bg-tdds-coral-start/85 group-hover:bg-tdds-lime transition-colors flex-shrink-0"
+              />
+              <span className="truncate">{item}</span>
             </li>
           ))}
         </ul>
       </div>
 
-      {/* Bottom Action Trigger: Circular Button aligned right */}
-      <div className="pt-2 flex items-center justify-end">
+      {/* Bottom Action Trigger: Scope label + Circular Button */}
+      <div className="pt-2 flex items-center justify-between">
+        <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.18em] text-white/35 group-hover:text-white/65 transition-colors">
+          Explore Scope
+        </span>
         <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 flex items-center justify-center text-white/80 transition-all duration-300 group-hover:bg-white group-hover:text-neutral-950 group-hover:border-white shadow-sm">
           <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </div>

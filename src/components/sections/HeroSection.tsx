@@ -43,7 +43,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <button
                 onClick={onOpenLeadDrawer}
-                className="group inline-flex items-center gap-2 bg-neutral-950 text-white hover:bg-black rounded-pill px-5 sm:px-7 py-3 sm:py-4 text-xs sm:text-base font-semibold transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg"
+                className="group inline-flex items-center gap-2 bg-neutral-950 text-white hover:bg-black rounded-pill px-5 sm:px-7 py-3.5 sm:py-4 text-xs sm:text-base font-semibold transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg"
               >
                 <span>{heroContent.primaryCta}</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -51,9 +51,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               <button
                 onClick={onOpenShowreel}
-                className="group inline-flex items-center gap-2.5 border border-neutral-300 hover:border-neutral-950 hover:bg-neutral-900/5 text-neutral-900 rounded-pill px-4.5 sm:px-6 py-3 sm:py-4 text-xs sm:text-base font-medium transition-all duration-200 active:scale-95"
+                className="group inline-flex items-center gap-2.5 border border-neutral-300 hover:border-neutral-950 hover:bg-neutral-900/5 text-neutral-900 rounded-pill px-5 sm:px-6 py-3.5 sm:py-4 text-xs sm:text-base font-medium transition-all duration-200 active:scale-95"
               >
-                <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-neutral-400 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
+                <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-neutral-400 flex items-center justify-center transition-transform duration-200 group-hover:scale-110 flex-shrink-0">
                   <Play className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-neutral-900 text-neutral-900 ml-0.5" />
                 </span>
                 <span>Watch Showreel</span>
