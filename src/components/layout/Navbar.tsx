@@ -12,6 +12,32 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadDrawer }) => {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
+    const cleanUrlHash = () => {
+      if (window.location.hash) {
+        window.history.replaceState(
+          null,
+          '',
+          window.location.pathname + window.location.search
+        );
+      }
+    };
+
+    // Strip hash if user arrived with one, but scroll to the section first
+    if (window.location.hash) {
+      const targetId = window.location.hash.replace('#', '');
+      const el = document.getElementById(targetId);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      }
+      cleanUrlHash();
+      setTimeout(cleanUrlHash, 200);
+      setTimeout(cleanUrlHash, 600);
+    }
+
+    window.addEventListener('hashchange', cleanUrlHash);
+
     let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
@@ -30,6 +56,35 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadDrawer }) => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Global interceptor for any in-page hash anchor clicks to prevent hash in URL
+    const handleGlobalAnchorClick = (e: MouseEvent) => {
+      const target = (e.target as Element)?.closest('a[href^="#"]');
+      if (target) {
+        const href = target.getAttribute('href');
+        if (href && href.startsWith('#') && href.length > 1) {
+          e.preventDefault();
+          const targetId = href.slice(1);
+          if (targetId === 'home') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            const el = document.getElementById(targetId);
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+          if (window.location.hash) {
+            window.history.replaceState(
+              null,
+              '',
+              window.location.pathname + window.location.search
+            );
+          }
+        }
+      }
+    };
+
+    document.addEventListener('click', handleGlobalAnchorClick);
 
     const sections = ['home', 'services', 'work', 'about', 'contact'];
     const observer = new IntersectionObserver(
@@ -53,9 +108,33 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadDrawer }) => {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('hashchange', cleanUrlHash);
+      document.removeEventListener('click', handleGlobalAnchorClick);
       observer.disconnect();
     };
   }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+
+    if (id === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    if (window.location.hash) {
+      window.history.replaceState(
+        null,
+        '',
+        window.location.pathname + window.location.search
+      );
+    }
+  };
 
   const navLinks = [
     { label: 'Home', href: '#home', id: 'home' },
@@ -82,6 +161,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadDrawer }) => {
           {/* Brand Logo & Wordmark */}
           <a
             href="#home"
+            onClick={(e) => handleNavClick(e, 'home')}
             className="flex items-center gap-2 sm:gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 rounded-lg p-1"
             aria-label="The Design Dude Studio - Home"
           >
@@ -115,6 +195,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadDrawer }) => {
                 <a
                   key={link.id}
                   href={link.href}
+                  onClick={(e) => handleNavClick(e, link.id)}
                   className={`relative py-1 transition-colors duration-200 ${
                     isDarkSection
                       ? isActive
@@ -178,7 +259,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadDrawer }) => {
                 <a
                   key={link.id}
                   href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.id)}
                   className="px-3 py-2 text-base font-semibold text-neutral-800 hover:text-black hover:bg-neutral-100 rounded-lg transition-colors flex items-center justify-between"
                 >
                   <span>{link.label}</span>
