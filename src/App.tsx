@@ -22,12 +22,16 @@ const DeliverablesDrawer = lazy(() =>
 const VideoLightboxModal = lazy(() =>
   import('./components/interactive/VideoLightboxModal').then((m) => ({ default: m.VideoLightboxModal }))
 );
+const ClientRosterDrawer = lazy(() =>
+  import('./components/interactive/ClientRosterDrawer').then((m) => ({ default: m.ClientRosterDrawer }))
+);
 const LegalModal = lazy(() =>
   import('./components/interactive/LegalModal').then((m) => ({ default: m.LegalModal }))
 );
 
 export const App: React.FC = () => {
   const [isLeadDrawerOpen, setIsLeadDrawerOpen] = useState(false);
+  const [isClientRosterOpen, setIsClientRosterOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<string | undefined>(undefined);
   const [activeDrawerService, setActiveDrawerService] = useState<ServiceCompartment | null>(null);
 
@@ -81,14 +85,6 @@ export const App: React.FC = () => {
     });
   };
 
-  const handleOpenCaseVideo = (videoUrl: string, title: string) => {
-    setVideoModal({
-      isOpen: true,
-      videoUrl,
-      title,
-    });
-  };
-
   const handleCloseVideoModal = () => {
     setVideoModal({
       isOpen: false,
@@ -117,8 +113,8 @@ export const App: React.FC = () => {
 
         {/* 04. Featured Work Portfolio (Ivory Canvas) */}
         <FeaturedWorkSection
-          onOpenCaseVideo={handleOpenCaseVideo}
           onOpenLeadDrawer={() => handleOpenLeadDrawer()}
+          onOpenClientRoster={() => setIsClientRosterOpen(true)}
         />
 
         {/* 05. Client Roster Infinite Marquee (Obsidian Canvas) */}
@@ -148,6 +144,14 @@ export const App: React.FC = () => {
             isOpen={isLeadDrawerOpen}
             onClose={handleCloseLeadDrawer}
             preSelectedService={selectedService}
+          />
+        )}
+
+        {isClientRosterOpen && (
+          <ClientRosterDrawer
+            isOpen={isClientRosterOpen}
+            onClose={() => setIsClientRosterOpen(false)}
+            onOpenLeadDrawer={() => handleOpenLeadDrawer()}
           />
         )}
 
