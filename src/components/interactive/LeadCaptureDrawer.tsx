@@ -288,8 +288,7 @@ export const LeadCaptureDrawer: React.FC<LeadCaptureDrawerProps> = ({
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="e.g. Karan Shah"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/40"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white/40"
                     />
                     {errors.name && <p className="text-xs text-red-400 mt-1">{errors.name}</p>}
                   </div>
@@ -304,8 +303,7 @@ export const LeadCaptureDrawer: React.FC<LeadCaptureDrawerProps> = ({
                       type="text"
                       value={formData.brand}
                       onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
-                      placeholder="e.g. Zanzar Jewellers"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/40"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white/40"
                     />
                   </div>
 
@@ -320,8 +318,7 @@ export const LeadCaptureDrawer: React.FC<LeadCaptureDrawerProps> = ({
                       required
                       value={formData.emailOrPhone}
                       onChange={(e) => setFormData({ ...formData, emailOrPhone: e.target.value })}
-                      placeholder="e.g. +91 98765 43210 or karan@brand.com"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/40"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white/40"
                     />
                     {errors.emailOrPhone && (
                       <p className="text-xs text-red-400 mt-1">{errors.emailOrPhone}</p>
