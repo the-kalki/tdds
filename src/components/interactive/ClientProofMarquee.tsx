@@ -48,7 +48,7 @@ export const ClientProofMarquee: React.FC = () => {
                       : 'font-display font-black text-xl sm:text-2xl tracking-wider text-white/85 group-hover:text-white'
                   }`}
                 >
-                  {brand.name === 'ZANZAR' && (
+                  {brand.name.includes('ZANZAR') && (
                     <span className="text-xs text-white/40 group-hover:text-tdds-coral-start transition-colors mr-1">
                       ✦
                     </span>

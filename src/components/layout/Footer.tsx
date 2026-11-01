@@ -13,7 +13,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
   const currentYear = 2026;
 
   return (
-    <footer id="contact" className="relative bg-[#080808] text-white pt-16 sm:pt-24 lg:pt-28 pb-10 sm:pb-12 overflow-hidden border-t border-white/10">
+    <footer
+      id="contact"
+      className="relative bg-[#080808] text-white min-h-screen min-h-[100dvh] flex flex-col justify-between pt-20 sm:pt-28 lg:pt-32 pb-10 sm:pb-12 overflow-hidden border-t border-white/10"
+    >
       {/* 01. Dynamic Multi-Stop Liquid Aurora Canvas Flow (100% Pure CSS Animation - 0 Images) */}
       <div className="footer-liquid-canvas absolute inset-0 pointer-events-none" />
 
@@ -24,8 +27,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
       <div className="absolute inset-0 bg-gradient-to-b from-[#080808] via-[#080808]/65 to-transparent pointer-events-none" />
 
       {/* 04. Section Content */}
-      <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-14 pb-12 sm:pb-20 lg:pb-28">
+      <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-12 relative z-10 w-full flex-1 flex flex-col justify-between">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-14 my-auto py-8 sm:py-14">
           {/* Left Column: Heading Lockup */}
           <div className="max-w-2xl">
             {/* Section Tag without numbering */}
@@ -47,7 +50,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
             {/* Primary Action Button */}
             <button
               onClick={onOpenLeadDrawer}
-              className="group inline-flex items-center justify-center gap-2.5 bg-white text-neutral-950 hover:bg-neutral-100 rounded-pill w-full sm:w-[230px] py-4 text-sm sm:text-base font-bold transition-all duration-300 active:scale-95 shadow-xl hover:shadow-2xl hover:brightness-105"
+              className="group inline-flex items-center justify-center gap-2.5 bg-white text-neutral-950 hover:bg-neutral-100 rounded-pill w-full sm:w-[230px] py-4 text-sm sm:text-base font-bold transition-all duration-300 active:scale-95 shadow-xl hover:shadow-2xl hover:brightness-105 cursor-pointer"
               aria-label="Start a Project"
             >
               <span>Start a Project</span>
@@ -59,7 +62,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
               href={`https://wa.me/${siteMeta.whatsappNumber}?text=Hi%20TDDS%20team,%20I'd%20like%20to%20discuss%20a%20project...`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2.5 border border-white/20 hover:border-white hover:bg-white/10 text-white rounded-pill w-full sm:w-[230px] py-4 text-sm sm:text-base font-semibold transition-all duration-300 active:scale-95 backdrop-blur-sm shadow-lg hover:shadow-xl"
+              className="group inline-flex items-center justify-center gap-2.5 border border-white/20 hover:border-white hover:bg-white/10 text-white rounded-pill w-full sm:w-[230px] py-4 text-sm sm:text-base font-semibold transition-all duration-300 active:scale-95 backdrop-blur-sm shadow-lg hover:shadow-xl cursor-pointer"
               aria-label="Chat on WhatsApp"
             >
               <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-tdds-lime transition-transform duration-200 group-hover:scale-110" />

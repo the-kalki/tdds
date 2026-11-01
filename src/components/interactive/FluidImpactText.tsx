@@ -14,9 +14,9 @@ export interface FluidImpactTextProps {
 export const FluidImpactText: React.FC<FluidImpactTextProps> = ({ className = '' }) => {
   return (
     <span
-      className={`block text-gradient-coral font-display font-black tracking-tight uppercase select-none ${className}`}
+      className={`block text-gradient-coral font-display font-black tracking-tight select-none ${className}`}
     >
-      IMPACT.
+      Impact.
     </span>
   );
 };

@@ -1,17 +1,15 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
 import { SectionTag } from '../common/SectionTag';
 import { BentoServiceGrid } from '../interactive/BentoServiceGrid';
 import type { ServiceCompartment } from '../../types/content';
 
 export interface ServicesBentoSectionProps {
   onSelectService: (service: ServiceCompartment) => void;
-  onOpenLeadDrawer: () => void;
+  onOpenLeadDrawer?: () => void;
 }
 
 export const ServicesBentoSection: React.FC<ServicesBentoSectionProps> = ({
   onSelectService,
-  onOpenLeadDrawer,
 }) => {
   return (
     <section id="services" className="pt-20 pb-14 sm:py-16 lg:py-20 bg-tdds-obsidian text-white relative overflow-hidden">
@@ -27,16 +25,9 @@ export const ServicesBentoSection: React.FC<ServicesBentoSectionProps> = ({
               <span className="block sm:inline lg:block">your brand </span>
               <span className="block sm:inline lg:block">needs.</span>
             </h2>
-            <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed font-normal mb-4 sm:mb-8 max-w-sm">
+            <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed font-normal max-w-sm">
               From content to campaigns, we handle the entire creative journey — so you can focus on what you do best.
             </p>
-            <button
-              onClick={onOpenLeadDrawer}
-              className="group inline-flex items-center gap-2.5 bg-white text-neutral-950 hover:bg-neutral-100 rounded-pill px-5 sm:px-7 py-2.5 sm:py-3.5 text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg"
-            >
-              <span>View All Services</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </button>
           </div>
 
           {/* Right Column: Cards + Smooth Horizontal Scroll Track with Mobile Peek */}

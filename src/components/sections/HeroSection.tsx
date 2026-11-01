@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { ArrowUpRight, Play } from 'lucide-react';
 import { SectionTag } from '../common/SectionTag';
 import { FluidImpactText } from '../interactive/FluidImpactText';
 import { heroContent } from '../../content/siteContent';
+
+const LiquidGlassHero = lazy(() => import('../interactive/LiquidGlassHero'));
+const prefersStatic =
+  typeof window !== 'undefined' &&
+  (window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    !document.createElement('canvas').getContext('webgl2')); // GPU disabled/blocked → skip the 268 KB 3D chunk
+
+const heroFallback = (
+  <img
+    src="/images/hero-3d-monogram.webp"
+    alt="The Design Dude Studio 3D Monogram Sculpture"
+    className="w-full h-full object-contain filter drop-shadow-2xl select-none pointer-events-none"
+    width={440}
+    height={440}
+    loading="eager"
+    fetchPriority="high"
+  />
+);
 
 export interface HeroSectionProps {
   onOpenLeadDrawer: () => void;
@@ -28,9 +46,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </SectionTag>
 
             {/* Main Headline H1 */}
-            <h1 className="font-display font-black text-4xl sm:text-6xl lg:text-6xl xl:text-7xl tracking-tight text-neutral-950 uppercase leading-[0.92] mb-4 sm:mb-6 select-none">
-              <span className="block">IDEAS</span>
-              <span className="block">INTO</span>
+            <h1 className="font-display font-black text-4xl sm:text-6xl lg:text-6xl xl:text-7xl tracking-tight text-neutral-950 leading-[0.95] mb-4 sm:mb-6 select-none">
+              <span className="block">Ideas</span>
+              <span className="block">into</span>
               <FluidImpactText className="mt-1 sm:mt-1.5" />
             </h1>
 
@@ -66,15 +84,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="relative flex items-center justify-center lg:justify-start gap-4 sm:gap-10 xl:gap-12 w-full">
               {/* 3D Glass Monogram Sculpture */}
               <div className="relative w-[210px] sm:w-[320px] lg:w-[390px] xl:w-[440px] aspect-square flex-shrink-0 flex items-center justify-center transition-transform duration-700 ease-editorial hover:scale-[1.02]">
-                <img
-                  src="/images/hero-3d-monogram.webp"
-                  alt="The Design Dude Studio 3D Monogram Sculpture"
-                  className="w-full h-full object-contain filter drop-shadow-2xl select-none pointer-events-none"
-                  width={440}
-                  height={440}
-                  loading="eager"
-                  fetchPriority="high"
-                />
+                {prefersStatic ? heroFallback : (
+                  <Suspense fallback={heroFallback}>
+                    <LiquidGlassHero fallback={heroFallback} />
+                  </Suspense>
+                )}
               </div>
 
               {/* Floating Philosophy Vertical Tags with generous breathing room to the right */}
