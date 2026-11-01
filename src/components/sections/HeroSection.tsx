@@ -12,8 +12,8 @@ const prefersStatic =
 
 const heroFallback = (
   <img
-    src="/images/hero-3d-monogram.webp"
-    alt="The Design Dude Studio 3D Monogram Sculpture"
+    src="/images/hero-logo.webp"
+    alt="The Design Dude Studio Logo"
     className="w-full h-full object-contain filter drop-shadow-2xl select-none pointer-events-none"
     width={440}
     height={440}
@@ -46,9 +46,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </SectionTag>
 
             {/* Main Headline H1 */}
-            <h1 className="font-display font-black text-4xl sm:text-6xl lg:text-6xl xl:text-7xl tracking-tight text-neutral-950 leading-[0.95] mb-4 sm:mb-6 select-none">
-              <span className="block">Ideas</span>
-              <span className="block">into</span>
+            <h1 className="font-display font-black text-4xl sm:text-6xl lg:text-6xl xl:text-7xl tracking-tight text-neutral-950 uppercase leading-[0.92] mb-4 sm:mb-6 select-none">
+              <span className="block">IDEAS</span>
+              <span className="block">INTO</span>
               <FluidImpactText className="mt-1 sm:mt-1.5" />
             </h1>
 

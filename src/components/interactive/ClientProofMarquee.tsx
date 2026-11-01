@@ -29,7 +29,6 @@ export const ClientProofMarquee: React.FC = () => {
           {marqueeItems.map((brand, idx) => {
             const isSerif = brand.style === 'serif';
             const isMonogram = brand.style === 'monogram';
-            const isAccent = brand.isAccent;
 
             return (
               <div
@@ -43,8 +42,6 @@ export const ClientProofMarquee: React.FC = () => {
                       ? 'font-serif text-xl sm:text-2xl tracking-[0.22em] text-white/80 group-hover:text-white'
                       : isMonogram
                       ? 'font-display font-black text-2xl sm:text-3xl tracking-tighter text-white/85 group-hover:text-white'
-                      : isAccent
-                      ? 'font-display font-bold text-base sm:text-lg tracking-wider text-tdds-lime group-hover:brightness-125'
                       : 'font-display font-black text-xl sm:text-2xl tracking-wider text-white/85 group-hover:text-white'
                   }`}
                 >
@@ -59,11 +56,7 @@ export const ClientProofMarquee: React.FC = () => {
                 {/* Brand Descriptor / Category (Bottom Layer) */}
                 {brand.tagline && (
                   <span
-                    className={`text-[9px] sm:text-[10px] font-mono tracking-[0.28em] uppercase mt-1.5 transition-colors duration-300 ${
-                      isAccent
-                        ? 'text-tdds-lime/70 group-hover:text-tdds-lime font-bold'
-                        : 'text-white/40 group-hover:text-white/75'
-                    }`}
+                    className="text-[9px] sm:text-[10px] font-mono tracking-[0.28em] uppercase mt-1.5 transition-colors duration-300 text-white/40 group-hover:text-white/75"
                   >
                     {brand.tagline}
                   </span>

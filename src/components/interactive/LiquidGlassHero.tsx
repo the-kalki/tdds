@@ -10,7 +10,7 @@ const Scene = () => {
   const mat = useRef<TransmissionMat>(null);
   const sheen = useRef<THREE.PointLight>(null);
   const prev = useRef(new THREE.Vector2());
-  const art = useLoader(THREE.TextureLoader, '/images/hero-3d-monogram.webp');
+  const art = useLoader(THREE.TextureLoader, '/images/hero-logo.webp');
   art.colorSpace = THREE.SRGBColorSpace;
 
   useFrame(({ pointer }, dt) => {

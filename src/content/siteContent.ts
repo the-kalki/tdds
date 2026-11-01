@@ -122,7 +122,7 @@ export const clientBrandsData: ClientBrand[] = [
   { name: "IOP EVENTS", tagline: "OUTDOOR PRODUCTIONS", industry: "Mega-Scale Live Events & Concerts", style: "bold" },
   { name: "GLOSS N FLOSS", tagline: "DENTAL HUB", industry: "Modern Aesthetic & Clinical Dentistry", style: "modern" },
   { name: "PAKWAN", tagline: "ROYAL CULINARY", industry: "Heritage Fine Dining & Hospitality", style: "serif" },
-  { name: "LIFE DANCE STUDIO", tagline: "HYDERABAD", industry: "Movement & Performing Arts", style: "accent", isAccent: true },
+  { name: "LIFE DANCE STUDIO", tagline: "HYDERABAD", industry: "Movement & Performing Arts", style: "bold" },
 ];
 
 export const testimonialsData: Testimonial[] = [
