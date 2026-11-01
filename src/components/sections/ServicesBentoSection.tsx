@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { SectionTag } from '../common/SectionTag';
 import { BentoServiceGrid, type BentoServiceGridRef } from '../interactive/BentoServiceGrid';
@@ -13,7 +13,9 @@ export interface ServicesBentoSectionProps {
 export const ServicesBentoSection: React.FC<ServicesBentoSectionProps> = ({
   onSelectService,
 }) => {
+  const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<BentoServiceGridRef>(null);
+  const [isSectionActive, setIsSectionActive] = useState(true);
   const [gridState, setGridState] = useState({
     activeIndex: 0,
     canScrollLeft: false,
@@ -21,8 +23,39 @@ export const ServicesBentoSection: React.FC<ServicesBentoSectionProps> = ({
     total: servicesData.length,
   });
 
+  // Click outside listener: when clicked anywhere outside this section, reset highlight to normal
+  useEffect(() => {
+    const handlePointerDown = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Element | null;
+      // Do not deactivate if interacting with drawers/modals
+      if (target?.closest('[role="dialog"], [data-drawer], .drawer-container')) {
+        return;
+      }
+
+      if (sectionRef.current) {
+        if (!sectionRef.current.contains(event.target as Node)) {
+          setIsSectionActive(false);
+        } else {
+          setIsSectionActive(true);
+        }
+      }
+    };
+
+    document.addEventListener('pointerdown', handlePointerDown);
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown);
+    };
+  }, []);
+
   return (
-    <section id="services" className="section-defer-render pt-20 pb-14 sm:py-16 lg:py-20 bg-tdds-obsidian text-white relative overflow-hidden">
+    <section
+      id="services"
+      ref={sectionRef}
+      onClick={() => {
+        if (!isSectionActive) setIsSectionActive(true);
+      }}
+      className="section-defer-render pt-20 pb-14 sm:py-16 lg:py-20 bg-tdds-obsidian text-white relative overflow-hidden"
+    >
       <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row items-start gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
           {/* Left Column: Heading Lockup + Navigation Dock */}
@@ -52,7 +85,10 @@ export const ServicesBentoSection: React.FC<ServicesBentoSectionProps> = ({
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
-                    onClick={() => gridRef.current?.scroll('left')}
+                    onClick={() => {
+                      setIsSectionActive(true);
+                      gridRef.current?.scroll('left');
+                    }}
                     disabled={!gridState.canScrollLeft}
                     aria-label="Previous service"
                     className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/20 bg-white/5 hover:bg-white hover:text-neutral-950 disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:bg-white/5 disabled:hover:text-white flex items-center justify-center text-white transition-all duration-200 active:scale-95 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
@@ -61,7 +97,10 @@ export const ServicesBentoSection: React.FC<ServicesBentoSectionProps> = ({
                   </button>
                   <button
                     type="button"
-                    onClick={() => gridRef.current?.scroll('right')}
+                    onClick={() => {
+                      setIsSectionActive(true);
+                      gridRef.current?.scroll('right');
+                    }}
                     disabled={!gridState.canScrollRight}
                     aria-label="Next service"
                     className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/20 bg-white/5 hover:bg-white hover:text-neutral-950 disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:bg-white/5 disabled:hover:text-white flex items-center justify-center text-white transition-all duration-200 active:scale-95 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
@@ -86,18 +125,24 @@ export const ServicesBentoSection: React.FC<ServicesBentoSectionProps> = ({
                 aria-label="Service navigation indicators"
               >
                 {servicesData.map((service, idx) => {
-                  const isActive = gridState.activeIndex === idx;
+                  const isCurrentPillar = gridState.activeIndex === idx;
+                  const isPillarHighlighted = isSectionActive && isCurrentPillar;
                   return (
                     <button
                       key={service.id}
                       type="button"
                       role="tab"
-                      aria-selected={isActive}
-                      onClick={() => gridRef.current?.scrollToIndex(idx)}
+                      aria-selected={isCurrentPillar}
+                      onClick={() => {
+                        setIsSectionActive(true);
+                        gridRef.current?.scrollToIndex(idx);
+                      }}
                       aria-label={`Jump to service ${idx + 1}: ${service.title}`}
                       className={`h-1.5 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
-                        isActive
+                        isPillarHighlighted
                           ? 'w-7 sm:w-8 bg-gradient-to-r from-tdds-coral-start to-tdds-coral-end shadow-[0_0_10px_rgba(255,87,34,0.4)]'
+                          : isCurrentPillar
+                          ? 'w-7 sm:w-8 bg-white/40'
                           : 'w-2 sm:w-2.5 bg-white/20 hover:bg-white/40'
                       }`}
                       title={service.title}
@@ -114,6 +159,7 @@ export const ServicesBentoSection: React.FC<ServicesBentoSectionProps> = ({
               ref={gridRef}
               onSelectService={onSelectService}
               onStateChange={setGridState}
+              isSectionActive={isSectionActive}
             />
           </div>
         </div>

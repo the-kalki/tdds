@@ -12,14 +12,20 @@ import { servicesData } from '../../content/siteContent';
 
 interface BentoCardProps {
   service: ServiceCompartment;
+  index: number;
+  isHighlighted: boolean;
   onSelectService: (service: ServiceCompartment) => void;
+  onCardClick: (index: number) => void;
   innerRef: (el: HTMLDivElement | null) => void;
   canTriggerClick: () => boolean;
 }
 
 const BentoCard: React.FC<BentoCardProps> = ({
   service,
+  index,
+  isHighlighted,
   onSelectService,
+  onCardClick,
   innerRef,
   canTriggerClick,
 }) => {
@@ -32,14 +38,20 @@ const BentoCard: React.FC<BentoCardProps> = ({
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
+          onCardClick(index);
           onSelectService(service);
         }
       }}
       onClick={() => {
         if (!canTriggerClick()) return;
+        onCardClick(index);
         onSelectService(service);
       }}
-      className="group relative rounded-2xl lg:rounded-3xl bg-[#141414]/90 backdrop-blur-xl border border-white/10 p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:border-white/30 hover:bg-[#181818] shadow-md hover:shadow-[0_20px_35px_-10px_rgba(0,0,0,0.6)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white w-[78vw] sm:w-[260px] lg:w-[calc((100%-2rem)/2.35)] xl:w-[calc((100%-2.5rem)/3.35)] 2xl:w-[calc((100%-3rem)/3.35)] max-w-[285px] sm:max-w-none h-[310px] sm:h-[375px] lg:h-[385px] xl:h-[395px] flex-shrink-0 snap-center select-none"
+      className={`group relative rounded-2xl lg:rounded-3xl p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white w-[78vw] sm:w-[260px] lg:w-[calc((100%-2rem)/2.35)] xl:w-[calc((100%-2.5rem)/3.35)] 2xl:w-[calc((100%-3rem)/3.35)] max-w-[285px] sm:max-w-none h-[310px] sm:h-[375px] lg:h-[385px] xl:h-[395px] flex-shrink-0 snap-center select-none border ${
+        isHighlighted
+          ? '-translate-y-1.5 border-white/35 bg-[#181818] shadow-[0_20px_35px_-10px_rgba(0,0,0,0.6)] ring-1 ring-white/15'
+          : 'bg-[#141414]/90 backdrop-blur-xl border-white/10 shadow-md hover:-translate-y-1.5 hover:border-white/30 hover:bg-[#181818] hover:shadow-[0_20px_35px_-10px_rgba(0,0,0,0.6)]'
+      }`}
     >
       <div>
         {/* 3D Visual Asset (Centered floating icon) */}
@@ -47,7 +59,9 @@ const BentoCard: React.FC<BentoCardProps> = ({
           <img
             src={service.imageAsset}
             alt={service.title}
-            className="max-h-full max-w-[85%] object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
+            className={`max-h-full max-w-[85%] object-contain drop-shadow-2xl transition-transform duration-500 ${
+              isHighlighted ? 'scale-105' : 'group-hover:scale-105'
+            }`}
             loading="lazy"
             decoding="async"
             width={200}
@@ -56,7 +70,13 @@ const BentoCard: React.FC<BentoCardProps> = ({
         </div>
 
         {/* Title */}
-        <h3 className="font-display font-bold text-sm sm:text-base text-white mb-2 sm:mb-2.5 tracking-tight leading-snug group-hover:text-tdds-coral-start transition-colors">
+        <h3
+          className={`font-display font-bold text-sm sm:text-base mb-2 sm:mb-2.5 tracking-tight leading-snug transition-colors ${
+            isHighlighted
+              ? 'text-tdds-coral-start'
+              : 'text-white group-hover:text-tdds-coral-start'
+          }`}
+        >
           {service.title}
         </h3>
 
@@ -65,11 +85,17 @@ const BentoCard: React.FC<BentoCardProps> = ({
           {service.deliverables.map((item, idx) => (
             <li
               key={idx}
-              className="flex items-center gap-2 text-[11px] sm:text-xs text-white/80 group-hover:text-white leading-snug font-medium transition-colors"
+              className={`flex items-center gap-2 text-[11px] sm:text-xs leading-snug font-medium transition-colors ${
+                isHighlighted ? 'text-white' : 'text-white/80 group-hover:text-white'
+              }`}
             >
               <span
                 aria-hidden="true"
-                className="w-1.5 h-1.5 rounded-full bg-tdds-coral-start group-hover:bg-tdds-lime transition-colors flex-shrink-0"
+                className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors ${
+                  isHighlighted
+                    ? 'bg-tdds-lime'
+                    : 'bg-tdds-coral-start group-hover:bg-tdds-lime'
+                }`}
               />
               <span className="truncate">{item}</span>
             </li>
@@ -79,11 +105,27 @@ const BentoCard: React.FC<BentoCardProps> = ({
 
       {/* Bottom Action Trigger: Scope label + Circular Button */}
       <div className="pt-2 flex items-center justify-between">
-        <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.18em] text-white/70 group-hover:text-white transition-colors">
+        <span
+          className={`font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.18em] transition-colors ${
+            isHighlighted ? 'text-white' : 'text-white/70 group-hover:text-white'
+          }`}
+        >
           Explore Scope
         </span>
-        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 flex items-center justify-center text-white/90 transition-all duration-300 group-hover:bg-white group-hover:text-neutral-950 group-hover:border-white shadow-sm">
-          <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        <div
+          className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full border flex items-center justify-center transition-all duration-300 shadow-sm ${
+            isHighlighted
+              ? 'bg-white text-neutral-950 border-white'
+              : 'border-white/20 text-white/90 group-hover:bg-white group-hover:text-neutral-950 group-hover:border-white'
+          }`}
+        >
+          <ArrowUpRight
+            className={`w-3.5 h-3.5 transition-transform duration-200 ${
+              isHighlighted
+                ? 'translate-x-0.5 -translate-y-0.5'
+                : 'group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+            }`}
+          />
         </div>
       </div>
     </div>
@@ -103,15 +145,16 @@ export interface BentoServiceGridProps {
     canScrollRight: boolean;
     total: number;
   }) => void;
+  isSectionActive?: boolean;
 }
 
 export const BentoServiceGrid = forwardRef<BentoServiceGridRef, BentoServiceGridProps>(
-  ({ onSelectService, onStateChange }, ref) => {
+  ({ onSelectService, onStateChange, isSectionActive = true }, ref) => {
     const trackRef = useRef<HTMLDivElement>(null);
     const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(true);
-    const [, setActiveIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(0);
     const activeIndexRef = useRef(0);
 
     const isDraggingRef = useRef(false);
@@ -127,31 +170,41 @@ export const BentoServiceGrid = forwardRef<BentoServiceGridRef, BentoServiceGrid
 
       const { scrollLeft, scrollWidth, clientWidth } = track;
       const maxScroll = Math.max(0, scrollWidth - clientWidth);
-      const newCanScrollLeft = scrollLeft > 8;
-      const newCanScrollRight = scrollLeft < maxScroll - 8;
+
+      let detectedIndex = 0;
+
+      if (maxScroll <= 8) {
+        detectedIndex = activeIndexRef.current;
+      } else if (scrollLeft >= maxScroll - 30) {
+        detectedIndex = servicesData.length - 1;
+      } else if (scrollLeft <= 30) {
+        detectedIndex = 0;
+      } else {
+        const viewportCenter = scrollLeft + clientWidth / 2;
+        let minDiff = Infinity;
+
+        cardRefs.current.forEach((card, idx) => {
+          if (!card) return;
+          const cardCenter = card.offsetLeft - track.offsetLeft + card.offsetWidth / 2;
+          const diff = Math.abs(cardCenter - viewportCenter);
+          if (diff < minDiff) {
+            minDiff = diff;
+            detectedIndex = idx;
+          }
+        });
+      }
+
+      setActiveIndex(detectedIndex);
+      activeIndexRef.current = detectedIndex;
+
+      const newCanScrollLeft = detectedIndex > 0;
+      const newCanScrollRight = detectedIndex < servicesData.length - 1;
 
       setCanScrollLeft(newCanScrollLeft);
       setCanScrollRight(newCanScrollRight);
 
-      // Dead-center card calculation: active card is closest to viewport center
-      const viewportCenter = scrollLeft + clientWidth / 2;
-      let closestIndex = 0;
-      let minDiff = Infinity;
-
-      cardRefs.current.forEach((card, idx) => {
-        if (!card) return;
-        const cardCenter = card.offsetLeft - track.offsetLeft + card.offsetWidth / 2;
-        const diff = Math.abs(cardCenter - viewportCenter);
-        if (diff < minDiff) {
-          minDiff = diff;
-          closestIndex = idx;
-        }
-      });
-
-      setActiveIndex(closestIndex);
-      activeIndexRef.current = closestIndex;
       onStateChange?.({
-        activeIndex: closestIndex,
+        activeIndex: detectedIndex,
         canScrollLeft: newCanScrollLeft,
         canScrollRight: newCanScrollRight,
         total: servicesData.length,
@@ -182,19 +235,25 @@ export const BentoServiceGrid = forwardRef<BentoServiceGridRef, BentoServiceGrid
 
         setActiveIndex(boundedIndex);
         activeIndexRef.current = boundedIndex;
+
+        const newCanScrollLeft = boundedIndex > 0;
+        const newCanScrollRight = boundedIndex < servicesData.length - 1;
+
+        setCanScrollLeft(newCanScrollLeft);
+        setCanScrollRight(newCanScrollRight);
+
         onStateChange?.({
           activeIndex: boundedIndex,
-          canScrollLeft: targetScrollLeft > 8,
-          canScrollRight: targetScrollLeft < maxScroll - 8,
+          canScrollLeft: newCanScrollLeft,
+          canScrollRight: newCanScrollRight,
           total: servicesData.length,
         });
 
         scrollTimeoutRef.current = setTimeout(() => {
           isProgrammaticScrollRef.current = false;
-          updateScrollState();
-        }, 450);
+        }, 550);
       },
-      [onStateChange, updateScrollState]
+      [onStateChange]
     );
 
     const scroll = useCallback(
@@ -307,13 +366,16 @@ export const BentoServiceGrid = forwardRef<BentoServiceGridRef, BentoServiceGrid
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
-          className="flex gap-3 sm:gap-4 overflow-x-auto pt-3 pb-8 sm:pt-4 sm:pb-10 px-2 sm:px-3 scroll-px-2 sm:scroll-px-3 snap-x snap-mandatory no-scrollbar scroll-smooth -my-3 sm:-my-4 cursor-grab active:cursor-grabbing"
+          className="flex gap-3 sm:gap-4 overflow-x-auto pt-3 pb-8 sm:pt-4 sm:pb-10 px-2 sm:px-3 pr-16 sm:pr-24 lg:pr-32 scroll-px-2 sm:scroll-px-3 snap-x snap-mandatory no-scrollbar scroll-smooth -my-3 sm:-my-4 cursor-grab active:cursor-grabbing"
         >
           {servicesData.map((service, idx) => (
             <BentoCard
               key={service.id}
               service={service}
+              index={idx}
+              isHighlighted={isSectionActive && activeIndex === idx}
               onSelectService={onSelectService}
+              onCardClick={(cardIdx) => scrollToIndex(cardIdx)}
               innerRef={(el) => (cardRefs.current[idx] = el)}
               canTriggerClick={canTriggerClick}
             />
