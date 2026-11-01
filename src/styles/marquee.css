@@ -3,7 +3,7 @@
     transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
   }
 }
 
@@ -12,12 +12,13 @@
   white-space: nowrap;
   display: flex;
   user-select: none;
+  width: 100%;
 }
 
 .tdds-marquee-track {
   display: flex;
   flex-shrink: 0;
-  animation: tdds-marquee-scroll 30s linear infinite;
+  animation: tdds-marquee-scroll 35s linear infinite;
   will-change: transform;
 }
 

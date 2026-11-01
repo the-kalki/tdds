@@ -39,7 +39,7 @@ const BentoCard: React.FC<BentoCardProps> = ({
         if (!canTriggerClick()) return;
         onSelectService(service);
       }}
-      className="group relative rounded-2xl lg:rounded-3xl bg-[#141414]/90 backdrop-blur-xl border border-white/10 p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:border-white/30 hover:bg-[#181818] shadow-md hover:shadow-[0_20px_35px_-10px_rgba(0,0,0,0.6)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white w-[78vw] sm:w-[260px] lg:w-[calc((100%-2rem)/2.35)] xl:w-[calc((100%-2.5rem)/3.35)] 2xl:w-[calc((100%-3rem)/3.35)] max-w-[285px] sm:max-w-none h-[310px] sm:h-[375px] lg:h-[385px] xl:h-[395px] flex-shrink-0 snap-start select-none"
+      className="group relative rounded-2xl lg:rounded-3xl bg-[#141414]/90 backdrop-blur-xl border border-white/10 p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:border-white/30 hover:bg-[#181818] shadow-md hover:shadow-[0_20px_35px_-10px_rgba(0,0,0,0.6)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white w-[78vw] sm:w-[260px] lg:w-[calc((100%-2rem)/2.35)] xl:w-[calc((100%-2.5rem)/3.35)] 2xl:w-[calc((100%-3rem)/3.35)] max-w-[285px] sm:max-w-none h-[310px] sm:h-[375px] lg:h-[385px] xl:h-[395px] flex-shrink-0 snap-center select-none"
     >
       <div>
         {/* 3D Visual Asset (Centered floating icon) */}
@@ -133,8 +133,20 @@ export const BentoServiceGrid = forwardRef<BentoServiceGridRef, BentoServiceGrid
       setCanScrollLeft(newCanScrollLeft);
       setCanScrollRight(newCanScrollRight);
 
-      const progress = maxScroll > 0 ? Math.min(1, Math.max(0, scrollLeft / maxScroll)) : 0;
-      const closestIndex = Math.round(progress * (servicesData.length - 1));
+      // Dead-center card calculation: active card is closest to viewport center
+      const viewportCenter = scrollLeft + clientWidth / 2;
+      let closestIndex = 0;
+      let minDiff = Infinity;
+
+      cardRefs.current.forEach((card, idx) => {
+        if (!card) return;
+        const cardCenter = card.offsetLeft - track.offsetLeft + card.offsetWidth / 2;
+        const diff = Math.abs(cardCenter - viewportCenter);
+        if (diff < minDiff) {
+          minDiff = diff;
+          closestIndex = idx;
+        }
+      });
 
       setActiveIndex(closestIndex);
       activeIndexRef.current = closestIndex;
@@ -151,12 +163,17 @@ export const BentoServiceGrid = forwardRef<BentoServiceGridRef, BentoServiceGrid
         const track = trackRef.current;
         if (!track) return;
         const boundedIndex = Math.max(0, Math.min(servicesData.length - 1, index));
-        const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
-        const targetScrollLeft =
-          maxScroll > 0 ? (boundedIndex / (servicesData.length - 1)) * maxScroll : 0;
+        const targetCard = cardRefs.current[boundedIndex];
+        if (!targetCard) return;
 
         isProgrammaticScrollRef.current = true;
         if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+
+        // Center the target card dead-center in the viewport
+        const cardLeft = targetCard.offsetLeft - track.offsetLeft;
+        const centerOffset = (track.clientWidth - targetCard.offsetWidth) / 2;
+        const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+        const targetScrollLeft = Math.max(0, Math.min(maxScroll, cardLeft - centerOffset));
 
         track.scrollTo({
           left: targetScrollLeft,
@@ -245,21 +262,21 @@ export const BentoServiceGrid = forwardRef<BentoServiceGridRef, BentoServiceGrid
 
     return (
       <div className="relative overflow-x-clip overflow-y-visible w-full group/slider">
-        {/* Soft edge gradient masks indicating overflow */}
+        {/* Soft edge gradient masks with calibrated width so centered cards remain 100% visible */}
         <div
-          className={`absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-tdds-obsidian via-tdds-obsidian/80 to-transparent pointer-events-none z-10 transition-opacity duration-300 ${
+          className={`absolute left-0 top-0 bottom-0 w-6 sm:w-12 bg-gradient-to-r from-tdds-obsidian via-tdds-obsidian/70 to-transparent pointer-events-none z-10 transition-opacity duration-300 ${
             canScrollLeft ? 'opacity-100' : 'opacity-0'
           }`}
           aria-hidden="true"
         />
         <div
-          className={`absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-tdds-obsidian via-tdds-obsidian/85 to-transparent pointer-events-none z-10 transition-opacity duration-300 ${
+          className={`absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-tdds-obsidian via-tdds-obsidian/80 to-transparent pointer-events-none z-10 transition-opacity duration-300 ${
             canScrollRight ? 'opacity-100' : 'opacity-0'
           }`}
           aria-hidden="true"
         />
 
-        {/* Floating in-track Navigation Chevrons for immediate visual affordance */}
+        {/* Floating in-track Navigation Chevrons for desktop view */}
         {canScrollLeft && (
           <button
             type="button"
@@ -282,7 +299,7 @@ export const BentoServiceGrid = forwardRef<BentoServiceGridRef, BentoServiceGrid
           </button>
         )}
 
-        {/* Carousel Track */}
+        {/* Carousel Track with CSS Scroll Snap center alignment and safe breathing room */}
         <div
           ref={trackRef}
           onScroll={handleScroll}
@@ -290,7 +307,7 @@ export const BentoServiceGrid = forwardRef<BentoServiceGridRef, BentoServiceGrid
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
-          className="flex gap-3 sm:gap-4 overflow-x-auto pt-3 pb-8 sm:pt-4 sm:pb-10 snap-x snap-mandatory no-scrollbar scroll-smooth -my-3 sm:-my-4 cursor-grab active:cursor-grabbing"
+          className="flex gap-3 sm:gap-4 overflow-x-auto pt-3 pb-8 sm:pt-4 sm:pb-10 px-2 sm:px-3 scroll-px-2 sm:scroll-px-3 snap-x snap-mandatory no-scrollbar scroll-smooth -my-3 sm:-my-4 cursor-grab active:cursor-grabbing"
         >
           {servicesData.map((service, idx) => (
             <BentoCard
