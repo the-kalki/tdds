@@ -71,13 +71,13 @@ const TestimonialCardItem: React.FC<TestimonialCardItemProps> = ({
             {item.monogram}
           </div>
           <div className="min-w-0">
-            <h4
+            <h3
               className={`font-display font-bold text-xs sm:text-sm truncate transition-colors ${
                 isActive ? 'text-neutral-950 font-extrabold' : 'text-neutral-800'
               }`}
             >
               {item.brandName}
-            </h4>
+            </h3>
             <div
               className="flex items-center gap-0.5 mt-0.5 sm:mt-1"
               aria-label="5 out of 5 stars"

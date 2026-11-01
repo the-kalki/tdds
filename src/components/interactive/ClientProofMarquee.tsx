@@ -13,7 +13,8 @@ export const ClientProofMarquee: React.FC = () => {
         <SectionTag theme="dark" className="mb-3">
           OUR CLIENTS
         </SectionTag>
-        <p className="text-[11px] sm:text-xs font-mono text-white/50 uppercase tracking-[0.2em]">
+        <h2 className="sr-only">Our Clients — Trusted by Visionary Founders and Established Retailers</h2>
+        <p className="text-[11px] sm:text-xs font-mono text-white/75 uppercase tracking-[0.2em]">
           Trusted by visionary founders, established retailers, and high-growth brands
         </p>
       </div>
@@ -45,7 +46,7 @@ export const ClientProofMarquee: React.FC = () => {
                   }`}
                 >
                   {brand.name.includes('ZANZAR') && (
-                    <span className="text-xs text-white/40 group-hover:text-tdds-coral-start transition-colors mr-1">
+                    <span className="text-xs text-white/70 group-hover:text-tdds-coral-start transition-colors mr-1">
                       ✦
                     </span>
                   )}
@@ -55,7 +56,7 @@ export const ClientProofMarquee: React.FC = () => {
                 {/* Brand Descriptor / Category (Bottom Layer) */}
                 {brand.tagline && (
                   <span
-                    className="text-[9px] sm:text-[10px] font-mono tracking-[0.28em] uppercase mt-1.5 transition-colors duration-300 text-white/40 group-hover:text-white/75"
+                    className="text-[9px] sm:text-[10px] font-mono tracking-[0.28em] uppercase mt-1.5 transition-colors duration-300 text-white/70 group-hover:text-white"
                   >
                     {brand.tagline}
                   </span>

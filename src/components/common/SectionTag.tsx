@@ -13,8 +13,8 @@ export const SectionTag: React.FC<SectionTagProps> = ({
 }) => {
   const styles =
     theme === 'dark'
-      ? "text-neutral-400 border-white/10 bg-white/[0.04]"
-      : "text-neutral-500 border-neutral-300/80 bg-neutral-900/[0.03]";
+      ? "text-neutral-200 border-white/20 bg-white/[0.06]"
+      : "text-neutral-800 border-neutral-300 bg-neutral-900/[0.04]";
 
   return (
     <div

@@ -92,6 +92,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadDrawer }) => {
               width={36}
               height={36}
               loading="eager"
+              decoding="async"
             />
             <img
               src="/images/tdds-text-mark.webp"
@@ -99,8 +100,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadDrawer }) => {
               className={`h-4 sm:h-5 w-auto object-contain transition-all duration-300 ${
                 isDarkSection ? 'brightness-0 invert' : ''
               }`}
+              width={118}
               height={20}
               loading="eager"
+              decoding="async"
             />
           </a>
 
@@ -116,10 +119,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadDrawer }) => {
                     isDarkSection
                       ? isActive
                         ? 'text-white font-semibold'
-                        : 'text-neutral-400 hover:text-white'
+                        : 'text-neutral-300 hover:text-white'
                       : isActive
                       ? 'text-neutral-950 font-semibold'
-                      : 'text-neutral-600 hover:text-neutral-950'
+                      : 'text-neutral-700 hover:text-neutral-950'
                   }`}
                 >
                   {link.label}
@@ -179,7 +182,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadDrawer }) => {
                   className="px-3 py-2 text-base font-semibold text-neutral-800 hover:text-black hover:bg-neutral-100 rounded-lg transition-colors flex items-center justify-between"
                 >
                   <span>{link.label}</span>
-                  <span className="text-xs font-mono text-neutral-400">0{navLinks.indexOf(link) + 1}</span>
+                  <span className="text-xs font-mono text-neutral-600 font-medium">0{navLinks.indexOf(link) + 1}</span>
                 </a>
               ))}
             </nav>

@@ -25,7 +25,7 @@ export const ServicesBentoSection: React.FC<ServicesBentoSectionProps> = ({
               <span className="block sm:inline lg:block">your brand </span>
               <span className="block sm:inline lg:block">needs.</span>
             </h2>
-            <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed font-normal max-w-sm">
+            <p className="text-white/80 text-xs sm:text-sm lg:text-base leading-relaxed font-normal max-w-sm">
               From content to campaigns, we handle the entire creative journey — so you can focus on what you do best.
             </p>
           </div>

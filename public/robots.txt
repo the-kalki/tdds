@@ -1,0 +1,23 @@
+# robots.txt for The Design Dude Studio (TDDS)
+# https://thedesigndudestudio.com
+
+User-agent: *
+Allow: /
+
+# Agentic Crawlers & AI Search Engines
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://thedesigndudestudio.com/sitemap.xml

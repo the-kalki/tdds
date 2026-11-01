@@ -25,7 +25,7 @@ export const FeaturedWorkSection: React.FC<FeaturedWorkSectionProps> = ({
               <span className="block sm:inline lg:block">Real brands. </span>
               <span className="block sm:inline lg:block">Real <span className="text-gradient-coral">work.</span></span>
             </h2>
-            <p className="text-neutral-600 text-xs sm:text-sm lg:text-base leading-relaxed font-normal mb-4 sm:mb-8 max-w-sm">
+            <p className="text-neutral-700 text-xs sm:text-sm lg:text-base leading-relaxed font-normal mb-4 sm:mb-8 max-w-sm">
               A glimpse of the stories we've helped brands tell.
             </p>
             <button

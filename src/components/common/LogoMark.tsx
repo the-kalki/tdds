@@ -12,6 +12,8 @@ export const LogoMark: React.FC<LogoMarkProps> = ({ className = 'w-8 h-8', title
       src="/images/tdds-logo-mark.webp"
       alt={title}
       className={`object-contain ${className}`}
+      width={36}
+      height={36}
       loading="eager"
       decoding="async"
     />

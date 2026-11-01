@@ -47,13 +47,13 @@ const BentoCard: React.FC<BentoCardProps> = ({ service, onSelectService }) => {
           {service.deliverables.slice(0, 5).map((item, idx) => (
             <li
               key={idx}
-              className={`flex items-center gap-2 text-[11px] sm:text-xs text-white/75 group-hover:text-white/95 leading-snug font-medium transition-colors ${
+              className={`flex items-center gap-2 text-[11px] sm:text-xs text-white/80 group-hover:text-white leading-snug font-medium transition-colors ${
                 idx >= 4 ? 'hidden sm:flex' : ''
               }`}
             >
               <span
                 aria-hidden="true"
-                className="w-1.5 h-1.5 rounded-full bg-tdds-coral-start/85 group-hover:bg-tdds-lime transition-colors flex-shrink-0"
+                className="w-1.5 h-1.5 rounded-full bg-tdds-coral-start group-hover:bg-tdds-lime transition-colors flex-shrink-0"
               />
               <span className="truncate">{item}</span>
             </li>
@@ -63,10 +63,10 @@ const BentoCard: React.FC<BentoCardProps> = ({ service, onSelectService }) => {
 
       {/* Bottom Action Trigger: Scope label + Circular Button */}
       <div className="pt-2 flex items-center justify-between">
-        <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.18em] text-white/35 group-hover:text-white/65 transition-colors">
+        <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.18em] text-white/70 group-hover:text-white transition-colors">
           Explore Scope
         </span>
-        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 flex items-center justify-center text-white/80 transition-all duration-300 group-hover:bg-white group-hover:text-neutral-950 group-hover:border-white shadow-sm">
+        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/20 flex items-center justify-center text-white/90 transition-all duration-300 group-hover:bg-white group-hover:text-neutral-950 group-hover:border-white shadow-sm">
           <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </div>
       </div>

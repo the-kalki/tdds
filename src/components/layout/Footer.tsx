@@ -47,7 +47,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
           </div>
 
           {/* Column 2 (NEW COLUMN): Studio Direct Engagement & Availability (4 cols on lg) */}
-          <div className="lg:col-span-4 flex flex-col justify-end gap-3 sm:gap-4 text-white/70 text-xs sm:text-sm border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0 md:pl-6 lg:pl-8">
+          <div className="lg:col-span-4 flex flex-col justify-end gap-3 sm:gap-4 text-white/85 text-xs sm:text-sm border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0 md:pl-6 lg:pl-8">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-tdds-lime animate-pulse" />
               <span className="font-mono text-[11px] sm:text-xs text-tdds-lime font-bold uppercase tracking-wider">
@@ -55,11 +55,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
               </span>
             </div>
 
-            <p className="leading-relaxed text-white/75 text-xs sm:text-sm">
+            <p className="leading-relaxed text-white/80 text-xs sm:text-sm">
               We partner with ambitious founders, established retail brands, and high-growth teams ready to command industry attention.
             </p>
 
-            <div className="space-y-1.5 text-[11px] sm:text-xs font-mono text-white/50 pt-1">
+            <div className="space-y-1.5 text-[11px] sm:text-xs font-mono text-white/75 pt-1">
               <p className="text-white/80 flex items-center gap-1.5">
                 <span className="text-tdds-coral-start">✦</span>
                 <span>Fast Onboarding: Discovery brief within 24h</span>
@@ -102,14 +102,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
         </div>
 
         {/* 05. Clean Minimalist Legal & Social Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-5 text-xs text-white/50">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-5 text-xs text-white/75">
           <div className="flex items-center gap-3">
             <LogoMark className="w-5 h-5 text-white/80" />
             <p>© {currentYear} The Design Dude Studio. All rights reserved.</p>
           </div>
 
           {/* Subtle Inline Social Icons */}
-          <div className="flex items-center gap-2.5 text-white/70">
+          <div className="flex items-center gap-2.5 text-white/80">
             <a
               href={siteMeta.instagram}
               target="_blank"
@@ -142,7 +142,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
           </div>
 
           {/* Legal Pages & Studio Stamp */}
-          <div className="flex items-center gap-5 text-white/50">
+          <div className="flex items-center gap-5 text-white/75">
             <button
               type="button"
               onClick={() => onOpenLegal?.('privacy')}
@@ -157,8 +157,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
             >
               Terms of Engagement
             </button>
-            <span className="text-white/30">•</span>
-            <span className="text-white/70">Crafted in Ahmedabad</span>
+            <span className="text-white/60">•</span>
+            <span className="text-white/85">Crafted in Ahmedabad</span>
           </div>
         </div>
       </div>

@@ -40,28 +40,28 @@ export const FaqSection: React.FC = () => {
                 </summary>
                 
                 {/* Structured Answer Container: High-Scannability Typography */}
-                <div className="pt-3.5 pb-2 pr-4 sm:pr-10 text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans max-w-prose space-y-2.5">
+                <div className="pt-3.5 pb-2 pr-4 sm:pr-10 text-xs sm:text-sm text-neutral-700 leading-relaxed font-sans max-w-prose space-y-2.5">
                   {/* Opening Summary Sentence (Renders inline <strong> markup cleanly) */}
                   {faq.summary ? (
                     <p
-                      className="text-neutral-700 font-normal [&>strong]:text-neutral-900 [&>strong]:font-semibold"
+                      className="text-neutral-800 font-normal [&>strong]:text-neutral-950 [&>strong]:font-semibold"
                       dangerouslySetInnerHTML={{ __html: faq.summary }}
                     />
                   ) : (
                     <p
-                      className="text-neutral-700 font-normal [&>strong]:text-neutral-900 [&>strong]:font-semibold"
+                      className="text-neutral-800 font-normal [&>strong]:text-neutral-950 [&>strong]:font-semibold"
                       dangerouslySetInnerHTML={{ __html: faq.answer || '' }}
                     />
                   )}
 
                   {/* Multi-part Breakdown with Inline Bolding */}
                   {faq.bullets && faq.bullets.length > 0 && (
-                    <ul className="space-y-1.5 pl-4 sm:pl-5 list-disc text-neutral-600 marker:text-neutral-400">
+                    <ul className="space-y-1.5 pl-4 sm:pl-5 list-disc text-neutral-700 marker:text-neutral-500">
                       {faq.bullets.map((bullet, bIdx) => (
                         <li
                           key={bIdx}
                           dangerouslySetInnerHTML={{ __html: bullet }}
-                          className="leading-relaxed [&>strong]:text-neutral-900 [&>strong]:font-semibold"
+                          className="leading-relaxed [&>strong]:text-neutral-950 [&>strong]:font-semibold"
                         />
                       ))}
                     </ul>
@@ -70,7 +70,7 @@ export const FaqSection: React.FC = () => {
                   {/* Core Takeaway / Strategic Reassurance */}
                   {faq.takeaway && (
                     <p
-                      className="text-xs sm:text-sm text-neutral-700 font-normal pt-2 border-t border-neutral-200/60 [&>strong]:text-neutral-950 [&>strong]:font-bold"
+                      className="text-xs sm:text-sm text-neutral-800 font-normal pt-2 border-t border-neutral-200/60 [&>strong]:text-neutral-950 [&>strong]:font-bold"
                       dangerouslySetInnerHTML={{ __html: faq.takeaway }}
                     />
                   )}

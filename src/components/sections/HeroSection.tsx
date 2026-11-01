@@ -35,7 +35,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </h1>
 
             {/* Subheadline Copy */}
-            <p className="text-neutral-600 text-xs sm:text-base lg:text-lg font-normal leading-relaxed max-w-md mb-6 sm:mb-10">
+            <p className="text-neutral-700 text-xs sm:text-base lg:text-lg font-normal leading-relaxed max-w-md mb-6 sm:mb-10">
               {heroContent.subheadline}
             </p>
 
@@ -79,13 +79,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
 
               {/* Floating Philosophy Vertical Tags with generous breathing room to the right */}
-              <div className="flex flex-col items-start gap-1 sm:gap-1.5 text-[9px] sm:text-[11px] font-mono tracking-[0.24em] text-neutral-400 uppercase select-none flex-shrink-0">
+              <div className="flex flex-col items-start gap-1 sm:gap-1.5 text-[9px] sm:text-[11px] font-mono tracking-[0.24em] text-neutral-600 font-semibold uppercase select-none flex-shrink-0">
                 {heroContent.philosophyTags.map((tag) => (
-                  <span key={tag} className="transition-colors duration-200 hover:text-neutral-900">
+                  <span key={tag} className="transition-colors duration-200 hover:text-neutral-950">
                     {tag}
                   </span>
                 ))}
-                <div className="w-4 sm:w-5 h-[1.5px] bg-neutral-300 mt-1.5 sm:mt-2" />
+                <div className="w-4 sm:w-5 h-[1.5px] bg-neutral-400 mt-1.5 sm:mt-2" />
               </div>
             </div>
           </div>
@@ -96,12 +96,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="hidden lg:flex absolute right-6 sm:right-10 bottom-8 sm:bottom-12 flex-col items-center gap-2.5 select-none pointer-events-none z-10 animate-scroll-bounce">
         <span
           style={{ writingMode: 'vertical-rl' }}
-          className="text-[9px] sm:text-[10px] font-mono tracking-[0.28em] text-neutral-400 uppercase"
+          className="text-[9px] sm:text-[10px] font-mono tracking-[0.28em] text-neutral-600 font-semibold uppercase"
         >
           SCROLL
         </span>
-        <div className="w-[1.5px] h-8 sm:h-10 bg-neutral-300 relative overflow-hidden rounded-full">
-          <div className="w-full h-1/2 bg-neutral-900 rounded-full" />
+        <div className="w-[1.5px] h-8 sm:h-10 bg-neutral-400 relative overflow-hidden rounded-full">
+          <div className="w-full h-1/2 bg-neutral-950 rounded-full" />
         </div>
       </div>
     </section>

@@ -75,6 +75,10 @@ export const DeliverablesDrawer: React.FC<DeliverablesDrawerProps> = ({
               src={service.imageAsset}
               alt={service.title}
               className="w-full h-full object-cover object-center"
+              width={480}
+              height={176}
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
