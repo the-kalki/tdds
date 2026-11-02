@@ -32,6 +32,7 @@ export const LeadCaptureDrawer: React.FC<LeadCaptureDrawerProps> = ({
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [honeypot, setHoneypot] = useState('');
 
   const [formData, setFormData] = useState<Partial<EnquiryPayload>>({
     serviceNeeded: normalizeServiceOption(preSelectedService),
@@ -43,10 +44,12 @@ export const LeadCaptureDrawer: React.FC<LeadCaptureDrawerProps> = ({
   });
 
   const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const drawerMountTime = useRef<number>(0);
 
   useEffect(() => {
     if (!isOpen) return;
 
+    drawerMountTime.current = Date.now();
     closeBtnRef.current?.focus();
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -98,6 +101,14 @@ export const LeadCaptureDrawer: React.FC<LeadCaptureDrawerProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
+
+    // 0. Anti-Bot Defense: Honeypot check & Fast-submit Time Trap (< 1200ms)
+    const elapsedTime = drawerMountTime.current ? Date.now() - drawerMountTime.current : 0;
+    if (honeypot.trim() !== '' || (elapsedTime > 0 && elapsedTime < 1200)) {
+      // Silent trap for headless scrapers & bots: simulate submission without storing or triggering WhatsApp
+      setIsSubmitted(true);
+      return;
+    }
 
     const result = validateEnquiry(formData);
     if (!result.success || !result.data) {
@@ -268,6 +279,23 @@ export const LeadCaptureDrawer: React.FC<LeadCaptureDrawerProps> = ({
               {/* Step 3: Contact Details */}
               {step === 3 && (
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {/* Anti-Bot Invisible Honeypot Trap: Real users will never see or fill this */}
+                  <div
+                    aria-hidden="true"
+                    className="opacity-0 absolute -left-[9999px] pointer-events-none h-0 w-0 overflow-hidden"
+                  >
+                    <label htmlFor="lead-studio-verification">Do not fill this field</label>
+                    <input
+                      id="lead-studio-verification"
+                      name="studio_verification"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                    />
+                  </div>
+
                   <div>
                     <h3 className="font-display font-bold text-2xl text-white mb-2">
                       Where can we reach you?
