@@ -19,7 +19,7 @@ The Design Dude Studio (TDDS) crafts commercial films, viral reels, CGI ads, cus
 - [Featured Work Portfolio](https://thedesigndudestudio.com/#work): Commercial case studies for SWAG Fashion Hub, SÚN Luxury Jewels, Bluekrit Weddings, and Loyal Greens.
 - [Client Roster](https://thedesigndudestudio.com/#clients): Verified client partners across luxury jewelry, retail fashion, and live events.
 - [Client Testimonials](https://thedesigndudestudio.com/#testimonials): Verified founder testimonials and performance reviews.
-- [The Way We Work](https://thedesigndudestudio.com/#process): Our 4-step agile creative framework (Discovery, Sprint, Refinement, Launch).
+- [The Way We Work](https://thedesigndudestudio.com/#process): Our 7-step agile creative framework (Discovery, Research, Strategy, Prototyping, Production, Testing, Deployment).
 - [Questions & Answers](https://thedesigndudestudio.com/#about): Transparent FAQs covering commercial asset ownership, turnaround timelines, and pricing models.
 - [Contact & Onboarding](https://thedesigndudestudio.com/#contact): Direct studio contact, WhatsApp inquiry link, and multi-step project briefing drawer.
 

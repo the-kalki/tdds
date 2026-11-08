@@ -47,28 +47,33 @@ const BentoCard: React.FC<BentoCardProps> = ({
         onCardClick(index);
         onSelectService(service);
       }}
-      className={`group relative rounded-2xl lg:rounded-3xl p-4 sm:p-5 flex flex-col justify-between cursor-pointer transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white w-[78vw] sm:w-[260px] lg:w-[calc((100%-2rem)/2.35)] xl:w-[calc((100%-2.5rem)/3.35)] 2xl:w-[calc((100%-3rem)/3.35)] max-w-[285px] sm:max-w-none h-[310px] sm:h-[375px] lg:h-[385px] xl:h-[395px] flex-shrink-0 snap-center select-none border ${
+      className={`group relative rounded-2xl lg:rounded-3xl overflow-hidden flex flex-col cursor-pointer transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white w-[78vw] sm:w-[260px] lg:w-[calc((100%-2rem)/2.35)] xl:w-[calc((100%-2.5rem)/3.35)] 2xl:w-[calc((100%-3rem)/3.35)] max-w-[285px] sm:max-w-none h-[360px] sm:h-[430px] lg:h-[445px] xl:h-[455px] flex-shrink-0 snap-center select-none border ${
         isHighlighted
           ? '-translate-y-1.5 border-white/35 bg-[#181818] shadow-[0_20px_35px_-10px_rgba(0,0,0,0.6)] ring-1 ring-white/15'
           : 'bg-[#141414]/90 backdrop-blur-xl border-white/10 shadow-md hover:-translate-y-1.5 hover:border-white/30 hover:bg-[#181818] hover:shadow-[0_20px_35px_-10px_rgba(0,0,0,0.6)]'
       }`}
     >
-      <div>
-        {/* 3D Visual Asset (Centered floating icon) */}
-        <div className="w-full h-16 sm:h-24 lg:h-26 relative flex items-center justify-center my-1 sm:my-1.5 overflow-hidden">
+      {/* Full-bleed Studio Visual Banner */}
+      <div className="relative w-full h-36 sm:h-40 lg:h-44 flex-shrink-0 overflow-hidden bg-black">
           <img
             src={service.imageAsset}
             alt={service.title}
-            className={`max-h-full max-w-[85%] object-contain drop-shadow-2xl transition-transform duration-500 ${
+            className={`block w-full h-full object-cover object-center transition-transform duration-500 ${
               isHighlighted ? 'scale-105' : 'group-hover:scale-105'
             }`}
             loading="lazy"
             decoding="async"
-            width={200}
-            height={110}
+            width={480}
+            height={270}
           />
-        </div>
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"
+          aria-hidden="true"
+        />
+      </div>
 
+      <div className="flex flex-1 flex-col justify-between p-4 sm:p-5">
+        <div>
         {/* Title */}
         <h3
           className={`font-display font-bold text-sm sm:text-base mb-2 sm:mb-2.5 tracking-tight leading-snug transition-colors ${
@@ -101,7 +106,7 @@ const BentoCard: React.FC<BentoCardProps> = ({
             </li>
           ))}
         </ul>
-      </div>
+        </div>
 
       {/* Bottom Action Trigger: Scope label + Circular Button */}
       <div className="pt-2 flex items-center justify-between">
@@ -127,6 +132,7 @@ const BentoCard: React.FC<BentoCardProps> = ({
             }`}
           />
         </div>
+      </div>
       </div>
     </div>
   );

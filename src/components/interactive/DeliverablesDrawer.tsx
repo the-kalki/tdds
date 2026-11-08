@@ -70,14 +70,14 @@ export const DeliverablesDrawer: React.FC<DeliverablesDrawerProps> = ({
           </div>
 
           {/* Visual & Title */}
-          <div className="w-full h-44 rounded-xl overflow-hidden mb-6 bg-black/50 border border-white/10">
+          <div className="relative w-full aspect-video max-h-[34vh] rounded-xl overflow-hidden mb-6 bg-black flex items-center justify-center">
             <img
               src={service.imageAsset}
               alt={service.title}
-              className="w-full h-full object-cover object-center"
-              width={480}
-              height={176}
-              loading="lazy"
+              className="block w-full h-full object-contain object-center"
+              width={960}
+              height={540}
+              loading="eager"
               decoding="async"
             />
           </div>

@@ -32,3 +32,4 @@ dist-ssr
 # Agents
 .agent
 .agents
+docs/

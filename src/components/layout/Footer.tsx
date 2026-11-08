@@ -104,7 +104,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
         {/* 05. Clean Minimalist Legal & Social Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-5 text-xs text-white/75">
           <div className="flex items-center gap-3">
-            <LogoMark className="w-5 h-5 text-white/80" />
+            <LogoMark className="w-5 h-5 brightness-0 invert" title="tdds logo" />
             <p>© {currentYear} The Design Dude Studio. All rights reserved.</p>
           </div>
 
@@ -157,8 +157,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
             >
               Terms of Engagement
             </button>
-            <span className="text-white/60">•</span>
-            <span className="text-white/85">Crafted in Ahmedabad</span>
           </div>
         </div>
       </div>

@@ -30,7 +30,7 @@ export const servicesData: ServiceCompartment[] = [
       "Documentary Brand Stories",
       "Full-Scale Event Coverage",
     ],
-    imageAsset: "/images/service-camera.webp",
+    imageAsset: "/images/videoContent.webp",
   },
   {
     id: 'web-development',
@@ -43,7 +43,7 @@ export const servicesData: ServiceCompartment[] = [
       "Interactive Motion & 3D UI",
       "SEO & Speed Optimization",
     ],
-    imageAsset: "/images/service-prism.webp",
+    imageAsset: "/images/webDevelopment.webp",
   },
   {
     id: 'social-media',
@@ -56,7 +56,7 @@ export const servicesData: ServiceCompartment[] = [
       "Trend Forecasting & Auditing",
       "Community Growth & Engagement",
     ],
-    imageAsset: "/images/service-phone.webp",
+    imageAsset: "/images/socialMedia.webp",
   },
   {
     id: 'advertising-growth',
@@ -69,7 +69,7 @@ export const servicesData: ServiceCompartment[] = [
       "Audience Architecture & Targeting",
       "A/B Testing & Creative Scaling",
     ],
-    imageAsset: "/images/service-spheres.webp",
+    imageAsset: "/images/advertising.webp",
   },
   {
     id: 'branding-design',
@@ -82,7 +82,7 @@ export const servicesData: ServiceCompartment[] = [
       "Bespoke Packaging Design",
       "Web UI / UX Art Direction",
     ],
-    imageAsset: "/images/service-prism.webp",
+    imageAsset: "/images/brandIdentity.webp",
   },
 ];
 
@@ -312,23 +312,38 @@ export const testimonialsData: Testimonial[] = [
 export const processStepsData: ProcessStep[] = [
   {
     step: "01",
-    headline: "Discovery & Direction",
-    description: "Deep dive into your brand positioning, core audience, competitors, and growth objectives.",
+    headline: "Discovery & Alignment",
+    description: "Uncovering core brand objectives, audience archetypes, and technical constraints.",
   },
   {
     step: "02",
-    headline: "Creative Architecture",
-    description: "Moodboards, visual design tokens, scripts, video shot lists, and campaign hooks tailored for high retention.",
+    headline: "Research & Landscape Mapping",
+    description: "Benchmarking competitors, analyzing user friction points, and gathering intent data.",
   },
   {
     step: "03",
-    headline: "Production & Polish",
-    description: "Cinematic filming, 3D CGI rendering, motion graphics, audio mastering, and typography layout execution.",
+    headline: "Strategy & Concept Ideation",
+    description: "Defining creative direction, information architecture, and rapid wireframing.",
   },
   {
     step: "04",
-    headline: "Launch & Iterate",
-    description: "Deployment across digital platforms, analytics monitoring, performance feedback, and continuous creative refinement.",
+    headline: "Iterative Prototyping",
+    description: "Developing interactive low/high-fidelity prototypes for rapid sanity checks.",
+  },
+  {
+    step: "05",
+    headline: "Production & Refinement",
+    description: "High-craft UI design, production-ready assets, and copy integration.",
+  },
+  {
+    step: "06",
+    headline: "Testing & Agile Feedback Loops",
+    description: "Usability validation, stakeholder reviews, and responsive edge-case stress testing.",
+  },
+  {
+    step: "07",
+    headline: "Deployment & Continuous Evolution",
+    description: "Launch execution, tracking core engagement metrics, and iterative sprint optimization.",
   },
 ];
 
