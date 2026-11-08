@@ -8,6 +8,10 @@ export const siteMeta = {
   phoneDisplay: "+91 92270 09709",
   whatsappNumber: "919227009709",
   instagram: "https://www.instagram.com/the_designdude_studio/",
+  engineeringPartner: {
+    name: "Shunya-Labs",
+    url: "https://shunya-labs.com",
+  },
 };
 
 export const heroContent = {

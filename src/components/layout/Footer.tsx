@@ -141,8 +141,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
             </a>
           </div>
 
-          {/* Legal Pages & Studio Stamp */}
-          <div className="flex items-center gap-5 text-white/75">
+          {/* Legal Pages & Engineering Partner Stamp */}
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-5 gap-y-2 text-white/75">
             <button
               type="button"
               onClick={() => onOpenLegal?.('privacy')}
@@ -157,6 +157,23 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadDrawer, onOpenLegal })
             >
               Terms of Engagement
             </button>
+            <span className="hidden sm:inline text-white/20 select-none" aria-hidden="true">
+              |
+            </span>
+            <a
+              href={siteMeta.engineeringPartner.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Engineered by ${siteMeta.engineeringPartner.name} (opens in a new tab)`}
+              className="group inline-flex items-center gap-1.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-white/60 hover:text-white px-2.5 py-1 rounded-full bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-white/25 transition-all duration-300"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-tdds-lime/80 group-hover:bg-tdds-lime transition-colors" />
+              <span>Engineered by</span>
+              <span className="font-semibold text-white/90 group-hover:text-tdds-coral-start transition-colors">
+                {siteMeta.engineeringPartner.name}
+              </span>
+              <ArrowUpRight className="w-3 h-3 text-white/50 group-hover:text-white transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
           </div>
         </div>
       </div>
