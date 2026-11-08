@@ -53,31 +53,21 @@ const BentoCard: React.FC<BentoCardProps> = ({
           : 'bg-[#141414]/90 backdrop-blur-xl border-white/10 shadow-md hover:-translate-y-1.5 hover:border-white/30 hover:bg-[#181818] hover:shadow-[0_20px_35px_-10px_rgba(0,0,0,0.6)]'
       }`}
     >
-      {/* Full-bleed Studio Visual Banner with top headroom & seamless side/bottom fade */}
-      <div className="relative w-full h-40 sm:h-44 lg:h-48 pt-2.5 sm:pt-3 px-1.5 flex-shrink-0 overflow-hidden bg-gradient-to-b from-black via-[#0a0a0a] to-transparent">
-        <img
-          src={service.imageAsset}
-          alt={service.title}
-          className={`block w-full h-full object-contain object-top transition-transform duration-500 origin-bottom ${
-            isHighlighted ? 'scale-[1.03]' : 'group-hover:scale-[1.03]'
-          }`}
-          loading="lazy"
-          decoding="async"
-          width={480}
-          height={270}
-        />
-        {/* Left & Right edge vignettes for seamless studio fade */}
-        <div
-          className="absolute inset-y-0 left-0 w-7 sm:w-9 bg-gradient-to-r from-[#141414] via-[#141414]/65 to-transparent pointer-events-none"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-y-0 right-0 w-7 sm:w-9 bg-gradient-to-l from-[#141414] via-[#141414]/65 to-transparent pointer-events-none"
-          aria-hidden="true"
-        />
-        {/* Bottom vignette blending image base into the card surface */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#141414] via-[#141414]/70 to-transparent pointer-events-none"
+      {/* Full-bleed Studio Visual Banner */}
+      <div className="relative w-full h-36 sm:h-40 lg:h-44 flex-shrink-0 overflow-hidden bg-black">
+          <img
+            src={service.imageAsset}
+            alt={service.title}
+            className={`block w-full h-full object-cover object-center transition-transform duration-500 ${
+              isHighlighted ? 'scale-105' : 'group-hover:scale-105'
+            }`}
+            loading="lazy"
+            decoding="async"
+            width={480}
+            height={270}
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"
           aria-hidden="true"
         />
       </div>
