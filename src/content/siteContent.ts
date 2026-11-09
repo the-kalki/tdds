@@ -19,7 +19,7 @@ export const heroContent = {
   subheadline: "We create high-retention videos, posters, CGI ads, and digital experiences that make brands impossible to ignore.",
   primaryCta: "Start a Project",
   philosophyTags: ["IDEAS", "PEOPLE", "BRANDS", "CULTURE"],
-  showreelVideoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+  showreelVideoUrl: "",
 };
 
 export const servicesData: ServiceCompartment[] = [

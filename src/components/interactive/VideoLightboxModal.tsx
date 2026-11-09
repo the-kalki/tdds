@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { X } from 'lucide-react';
+import { X, Film } from 'lucide-react';
 
 export interface VideoLightboxModalProps {
   isOpen: boolean;
@@ -11,7 +11,7 @@ export interface VideoLightboxModalProps {
 export const VideoLightboxModal: React.FC<VideoLightboxModalProps> = ({
   isOpen,
   onClose,
-  videoUrl = "https://www.w3schools.com/html/mov_bbb.mp4",
+  videoUrl,
   title = "TDDS Studio Showreel",
 }) => {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -55,7 +55,7 @@ export const VideoLightboxModal: React.FC<VideoLightboxModalProps> = ({
         className="fixed inset-0 bg-black/90 backdrop-blur-md cursor-default border-none p-0 m-0"
       />
       <div
-        className="relative z-10 w-full max-w-5xl bg-neutral-950 rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+        className="relative z-10 w-full max-w-4xl bg-neutral-950 rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
       >
         {/* Header bar */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-neutral-900/50">
@@ -75,19 +75,40 @@ export const VideoLightboxModal: React.FC<VideoLightboxModalProps> = ({
           </button>
         </div>
 
-        {/* Video Player */}
-        <div className="relative aspect-video bg-black flex items-center justify-center">
-          <video
-            ref={videoRef}
-            src={videoUrl}
-            controls
-            autoPlay
-            muted
-            playsInline
-            className="w-full h-full object-contain"
-          >
-            Your browser does not support the video tag.
-          </video>
+        {/* Video Player or Placeholder */}
+        <div className="relative aspect-video bg-neutral-950 flex items-center justify-center overflow-hidden">
+          {videoUrl ? (
+            <video
+              ref={videoRef}
+              src={videoUrl}
+              controls
+              autoPlay
+              muted
+              playsInline
+              className="w-full h-full object-contain"
+            >
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-12 select-none">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-6 shadow-inner">
+                <Film className="w-8 h-8 sm:w-10 sm:h-10 text-neutral-300" />
+              </div>
+
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-neutral-800/80 border border-white/10 text-xs font-mono tracking-widest text-neutral-300 uppercase mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-tdds-lime animate-pulse" />
+                In Production
+              </div>
+
+              <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white mb-3">
+                On The Way
+              </h2>
+
+              <p className="text-xs sm:text-sm text-neutral-400 font-normal leading-relaxed max-w-sm">
+                Our official showreel is currently in the editing suite and will be dropping here shortly.
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>

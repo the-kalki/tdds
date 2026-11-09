@@ -80,7 +80,7 @@ export const App: React.FC = () => {
   const handleOpenShowreel = () => {
     setVideoModal({
       isOpen: true,
-      videoUrl: heroContent.showreelVideoUrl,
+      videoUrl: heroContent.showreelVideoUrl || undefined,
       title: "The Design Dude Studio — Showreel",
     });
   };
